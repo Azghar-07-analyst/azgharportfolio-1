@@ -10,10 +10,10 @@ const stats = [
 
 export function About() {
   return (
-    <section id="about" className="relative mx-auto max-w-6xl scroll-mt-24 px-5 py-24">
-      <Reveal>
+    <section id="about" className="section-px section-py relative mx-auto max-w-6xl scroll-mt-24">
+      <Reveal className="text-center lg:text-left">
         <p className="text-sm font-semibold uppercase tracking-widest text-cyan">About</p>
-        <h2 className="mt-2 font-display text-3xl font-bold sm:text-4xl">
+        <h2 className="heading-2 mt-2 font-display font-bold">
           Insights that move the needle
         </h2>
       </Reveal>
