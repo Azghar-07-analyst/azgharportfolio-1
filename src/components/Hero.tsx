@@ -107,7 +107,7 @@ function FloatingDashboard() {
 
 export function Hero() {
   return (
-    <section id="home" className="relative flex min-h-screen items-center overflow-hidden bg-mesh pt-24">
+    <section id="home" className="section-px relative flex min-h-screen items-center overflow-hidden bg-mesh pt-28 pb-16 lg:pt-24 lg:pb-0">
       <div className="absolute inset-0 -z-10">
         <div className="absolute left-1/4 top-1/4 h-72 w-72 animate-spin-slow rounded-full bg-purple/20 blur-3xl" />
         <div className="absolute right-1/4 bottom-1/4 h-72 w-72 animate-pulse rounded-full bg-cyan/20 blur-3xl" />
@@ -115,8 +115,8 @@ export function Hero() {
       </div>
 
 
-      <div className="mx-auto grid w-full max-w-6xl items-center gap-12 px-5 lg:grid-cols-2">
-        <div>
+      <div className="mx-auto grid w-full max-w-6xl items-center gap-12 lg:grid-cols-2">
+        <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
           <motion.span
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
