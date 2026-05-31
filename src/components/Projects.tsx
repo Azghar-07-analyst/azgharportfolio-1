@@ -55,7 +55,7 @@ export function Projects() {
                   href="https://github.com/Azghar-07-analyst"
                   target="_blank"
                   rel="noreferrer"
-                  className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-foreground transition-colors hover:text-cyan"
+                  className="mt-6 inline-flex min-h-[44px] w-full items-center justify-center gap-2 rounded-full bg-secondary px-4 text-sm font-semibold text-foreground transition-colors hover:text-cyan sm:w-auto sm:justify-start sm:bg-transparent sm:px-0"
                 >
                   <Github className="h-4 w-4" /> View Project
                   <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
