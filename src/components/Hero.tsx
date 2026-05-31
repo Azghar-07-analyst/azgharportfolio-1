@@ -65,9 +65,13 @@ export function Hero() {
           <motion.span
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            className="inline-flex items-center gap-2 rounded-full glass px-4 py-1.5 text-sm text-muted-foreground"
+            className="inline-flex items-center gap-2.5 rounded-full glass px-4 py-1.5 text-sm font-medium text-foreground/90"
           >
-            <span className="h-2 w-2 rounded-full bg-cyan glow-cyan" /> Available for opportunities
+            <span className="relative flex h-2.5 w-2.5">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-80" />
+              <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-green-400 shadow-[0_0_10px_2px_rgba(74,222,128,0.7)]" />
+            </span>
+            Open to Work — Let's Connect
           </motion.span>
 
           <motion.h1
