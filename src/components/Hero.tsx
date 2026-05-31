@@ -107,7 +107,7 @@ function FloatingDashboard() {
 
 export function Hero() {
   return (
-    <section id="home" className="relative flex min-h-screen items-center overflow-hidden bg-mesh pt-24">
+    <section id="home" className="section-px relative flex min-h-screen items-center overflow-hidden bg-mesh pt-28 pb-16 lg:pt-24 lg:pb-0">
       <div className="absolute inset-0 -z-10">
         <div className="absolute left-1/4 top-1/4 h-72 w-72 animate-spin-slow rounded-full bg-purple/20 blur-3xl" />
         <div className="absolute right-1/4 bottom-1/4 h-72 w-72 animate-pulse rounded-full bg-cyan/20 blur-3xl" />
@@ -115,8 +115,8 @@ export function Hero() {
       </div>
 
 
-      <div className="mx-auto grid w-full max-w-6xl items-center gap-12 px-5 lg:grid-cols-2">
-        <div>
+      <div className="mx-auto grid w-full max-w-6xl items-center gap-12 lg:grid-cols-2">
+        <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
           <motion.span
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
@@ -133,7 +133,8 @@ export function Hero() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="mt-5 font-display text-4xl font-extrabold leading-tight tracking-tight sm:text-6xl"
+            className="mt-5 font-display font-extrabold leading-tight tracking-tight"
+            style={{ fontSize: "clamp(2rem, 8vw, 5rem)" }}
           >
             Syed Azghar <br />
             Abbas <span className="text-gradient">Rizvi</span>
@@ -143,7 +144,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="mt-4 text-xl font-semibold text-foreground/90 sm:text-2xl"
+            className="mt-4 text-lg font-semibold text-foreground/90 sm:text-2xl"
           >
             Turning Raw Data into Strategic Decisions
           </motion.p>
@@ -152,7 +153,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
-            className="mt-3 text-sm text-muted-foreground sm:text-base"
+            className="mt-3 text-base text-muted-foreground"
           >
             Data Analyst • Python • SQL • Power BI • Machine Learning
           </motion.p>
@@ -161,11 +162,11 @@ export function Hero() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
-            className="mt-8 flex flex-wrap gap-4"
+            className="mt-8 flex w-full flex-col gap-4 sm:w-auto sm:flex-row sm:flex-wrap"
           >
             <RippleButton
               onClick={() => scrollTo("projects")}
-              className="group inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold text-primary-foreground glow-cyan transition-transform hover:scale-105"
+              className="group inline-flex min-h-[44px] w-full items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold text-primary-foreground glow-cyan transition-transform hover:scale-105 sm:w-auto"
               style={{ background: "var(--gradient-brand)" }}
             >
               View My Work
@@ -174,7 +175,7 @@ export function Hero() {
             <RippleLink
               href="/resume.pdf"
               download
-              className="inline-flex items-center gap-2 rounded-full glass px-6 py-3 text-sm font-semibold transition-colors hover:bg-secondary"
+              className="inline-flex min-h-[44px] w-full items-center justify-center gap-2 rounded-full glass px-6 py-3 text-sm font-semibold transition-colors hover:bg-secondary sm:w-auto"
             >
               <Download className="h-4 w-4" /> Download Resume
             </RippleLink>
@@ -186,7 +187,7 @@ export function Hero() {
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.3, duration: 0.7 }}
-          className="flex justify-center lg:justify-end"
+          className="flex scale-90 justify-center sm:scale-100 lg:justify-end"
         >
           <FloatingDashboard />
         </motion.div>

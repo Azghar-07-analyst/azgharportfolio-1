@@ -65,12 +65,12 @@ function Bar({ name, level, delay }: { name: string; level: number; delay: numbe
 
 export function Skills() {
   return (
-    <section id="skills" className="relative scroll-mt-24 px-5 py-24">
+    <section id="skills" className="section-px section-py relative scroll-mt-24">
       <div className="mx-auto max-w-6xl">
         <div className="flex flex-wrap items-end justify-between gap-4">
           <Reveal>
             <p className="text-sm font-semibold uppercase tracking-widest text-cyan">Skills</p>
-            <h2 className="mt-2 font-display text-3xl font-bold sm:text-4xl">Technical toolkit</h2>
+            <h2 className="heading-2 mt-2 font-display font-bold">Technical toolkit</h2>
           </Reveal>
 
           <Reveal delay={0.1}>

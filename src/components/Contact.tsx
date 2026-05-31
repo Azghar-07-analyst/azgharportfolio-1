@@ -10,14 +10,14 @@ const items = [
 
 export function Contact() {
   return (
-    <section id="contact" className="relative scroll-mt-24 px-5 py-24">
+    <section id="contact" className="section-px section-py relative scroll-mt-24">
       <div className="mx-auto max-w-4xl text-center">
         <Reveal>
           <p className="text-sm font-semibold uppercase tracking-widest text-cyan">Contact</p>
-          <h2 className="mt-2 font-display text-4xl font-extrabold sm:text-5xl">
+          <h2 className="mt-2 font-display font-extrabold" style={{ fontSize: "clamp(1.75rem, 5vw, 3rem)" }}>
             Let's <span className="text-gradient">Work Together</span>
           </h2>
-          <p className="mx-auto mt-4 max-w-xl text-muted-foreground">
+          <p className="mx-auto mt-4 max-w-xl text-base text-muted-foreground">
             Looking for a data analyst who turns numbers into decisions? Let's talk — I'm one
             message away.
           </p>

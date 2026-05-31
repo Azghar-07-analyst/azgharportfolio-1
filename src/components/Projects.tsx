@@ -25,14 +25,14 @@ const projects = [
 
 export function Projects() {
   return (
-    <section id="projects" className="relative scroll-mt-24 px-5 py-24">
+    <section id="projects" className="section-px section-py relative scroll-mt-24">
       <div className="mx-auto max-w-6xl">
         <Reveal>
           <p className="text-sm font-semibold uppercase tracking-widest text-cyan">Projects</p>
-          <h2 className="mt-2 font-display text-3xl font-bold sm:text-4xl">Selected work</h2>
+          <h2 className="heading-2 mt-2 font-display font-bold">Selected work</h2>
         </Reveal>
 
-        <div className="mt-10 grid gap-6 md:grid-cols-3">
+        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {projects.map((p, i) => (
             <Reveal key={p.title} delay={i * 0.1}>
               <TiltCard className="group flex h-full flex-col rounded-2xl glass p-6 transition-shadow duration-300 hover:glow-purple [transform-style:preserve-3d]">
@@ -55,7 +55,7 @@ export function Projects() {
                   href="https://github.com/Azghar-07-analyst"
                   target="_blank"
                   rel="noreferrer"
-                  className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-foreground transition-colors hover:text-cyan"
+                  className="mt-6 inline-flex min-h-[44px] w-full items-center justify-center gap-2 rounded-full bg-secondary px-4 text-sm font-semibold text-foreground transition-colors hover:text-cyan sm:w-auto sm:justify-start sm:bg-transparent sm:px-0"
                 >
                   <Github className="h-4 w-4" /> View Project
                   <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
