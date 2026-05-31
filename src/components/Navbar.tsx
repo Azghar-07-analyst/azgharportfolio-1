@@ -102,25 +102,38 @@ export function Navbar() {
 
       <AnimatePresence>
         {open && (
-          <motion.ul
+          <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="mx-5 mt-3 overflow-hidden rounded-2xl glass md:hidden"
+            className="section-px overflow-hidden md:hidden"
           >
-            {links.map((l) => (
-              <li key={l.id}>
-                <button
-                  onClick={() => go(l.id)}
-                  className={`block w-full px-6 py-3 text-left text-sm font-medium ${
-                    active === l.id ? "text-cyan" : "text-muted-foreground"
-                  }`}
+            <ul className="mt-3 overflow-hidden rounded-2xl glass">
+              {links.map((l) => (
+                <li key={l.id}>
+                  <button
+                    onClick={() => go(l.id)}
+                    className={`flex min-h-[44px] w-full items-center px-6 text-left text-sm font-medium ${
+                      active === l.id ? "text-cyan" : "text-muted-foreground"
+                    }`}
+                  >
+                    {l.label}
+                  </button>
+                </li>
+              ))}
+              <li className="p-3">
+                <a
+                  href="/resume.pdf"
+                  download
+                  onClick={() => setOpen(false)}
+                  className="flex min-h-[44px] w-full items-center justify-center gap-2 rounded-full px-4 text-sm font-semibold text-primary-foreground glow-cyan"
+                  style={{ background: "var(--gradient-brand)" }}
                 >
-                  {l.label}
-                </button>
+                  <Download className="h-4 w-4" /> Download Resume
+                </a>
               </li>
-            ))}
-          </motion.ul>
+            </ul>
+          </motion.div>
         )}
       </AnimatePresence>
     </header>
