@@ -144,7 +144,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="mt-4 text-xl font-semibold text-foreground/90 sm:text-2xl"
+            className="mt-4 text-lg font-semibold text-foreground/90 sm:text-2xl"
           >
             Turning Raw Data into Strategic Decisions
           </motion.p>
@@ -153,7 +153,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
-            className="mt-3 text-sm text-muted-foreground sm:text-base"
+            className="mt-3 text-base text-muted-foreground"
           >
             Data Analyst • Python • SQL • Power BI • Machine Learning
           </motion.p>
@@ -162,11 +162,11 @@ export function Hero() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
-            className="mt-8 flex flex-wrap gap-4"
+            className="mt-8 flex w-full flex-col gap-4 sm:w-auto sm:flex-row sm:flex-wrap"
           >
             <RippleButton
               onClick={() => scrollTo("projects")}
-              className="group inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold text-primary-foreground glow-cyan transition-transform hover:scale-105"
+              className="group inline-flex min-h-[44px] w-full items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold text-primary-foreground glow-cyan transition-transform hover:scale-105 sm:w-auto"
               style={{ background: "var(--gradient-brand)" }}
             >
               View My Work
@@ -175,7 +175,7 @@ export function Hero() {
             <RippleLink
               href="/resume.pdf"
               download
-              className="inline-flex items-center gap-2 rounded-full glass px-6 py-3 text-sm font-semibold transition-colors hover:bg-secondary"
+              className="inline-flex min-h-[44px] w-full items-center justify-center gap-2 rounded-full glass px-6 py-3 text-sm font-semibold transition-colors hover:bg-secondary sm:w-auto"
             >
               <Download className="h-4 w-4" /> Download Resume
             </RippleLink>
@@ -187,7 +187,7 @@ export function Hero() {
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.3, duration: 0.7 }}
-          className="flex justify-center lg:justify-end"
+          className="flex scale-90 justify-center sm:scale-100 lg:justify-end"
         >
           <FloatingDashboard />
         </motion.div>
