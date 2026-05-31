@@ -45,6 +45,7 @@ export const Route = createFileRoute("/")({
 function Index() {
   return (
     <main className="relative overflow-x-hidden">
+      <ScrollProgress />
       <Navbar />
       <Hero />
       <About />
@@ -55,6 +56,7 @@ function Index() {
       <Experience />
       <Certifications />
       <Contact />
+      <Footer />
     </main>
   );
 }
