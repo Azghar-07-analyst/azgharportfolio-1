@@ -133,7 +133,8 @@ export function Hero() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="mt-5 font-display text-4xl font-extrabold leading-tight tracking-tight sm:text-6xl"
+            className="mt-5 font-display font-extrabold leading-tight tracking-tight"
+            style={{ fontSize: "clamp(2rem, 8vw, 5rem)" }}
           >
             Syed Azghar <br />
             Abbas <span className="text-gradient">Rizvi</span>
