@@ -35,8 +35,10 @@ function Index() {
       <Navbar />
       <Hero />
       <About />
+      <Offerings />
       <Skills />
       <Projects />
+      <QuoteBanner />
       <Experience />
       <Certifications />
       <Contact />
