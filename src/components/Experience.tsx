@@ -9,11 +9,11 @@ const bullets = [
 
 export function Experience() {
   return (
-    <section id="experience" className="relative scroll-mt-24 px-5 py-24">
+    <section id="experience" className="section-px section-py relative scroll-mt-24">
       <div className="mx-auto max-w-6xl">
         <Reveal>
           <p className="text-sm font-semibold uppercase tracking-widest text-cyan">Experience</p>
-          <h2 className="mt-2 font-display text-3xl font-bold sm:text-4xl">Where I've worked</h2>
+          <h2 className="heading-2 mt-2 font-display font-bold">Where I've worked</h2>
         </Reveal>
 
         <Reveal delay={0.1}>
