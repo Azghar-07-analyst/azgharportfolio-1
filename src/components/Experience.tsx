@@ -42,11 +42,11 @@ export function Experience() {
               </div>
             </div>
 
-            <ul className="relative mt-6 space-y-3">
+            <ul className="relative mt-6 space-y-4">
               {bullets.map((b) => (
-                <li key={b} className="flex gap-3 text-muted-foreground">
+                <li key={b} className="flex gap-3 text-base leading-relaxed text-muted-foreground">
                   <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-cyan" />
-                  {b}
+                  <span>{b}</span>
                 </li>
               ))}
             </ul>
