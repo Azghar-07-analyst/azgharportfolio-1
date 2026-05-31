@@ -26,11 +26,11 @@ const items = [
 
 export function Offerings() {
   return (
-    <section className="relative scroll-mt-24 px-5 py-24">
+    <section className="section-px section-py relative scroll-mt-24">
       <div className="mx-auto max-w-6xl">
         <Reveal>
           <p className="text-sm font-semibold uppercase tracking-widest text-cyan">Value</p>
-          <h2 className="mt-2 font-display text-3xl font-bold sm:text-4xl">
+          <h2 className="heading-2 mt-2 font-display font-bold">
             What I Bring to the Table
           </h2>
         </Reveal>
