@@ -1,4 +1,4 @@
-import { Briefcase, MapPin, Calendar } from "lucide-react";
+import { MapPin, Calendar } from "lucide-react";
 import { Reveal } from "./Reveal";
 
 const bullets = [
