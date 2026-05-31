@@ -26,7 +26,18 @@ export const Route = createFileRoute("/")({
         property: "og:description",
         content: "Turning raw data into strategic decisions with Python, SQL, Power BI & ML.",
       },
+      { property: "og:type", content: "profile" },
+      { property: "og:url", content: "/" },
+      { property: "og:image", content: "/og-image.png" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Syed Azghar Abbas Rizvi — Data Analyst" },
+      {
+        name: "twitter:description",
+        content: "Turning raw data into strategic decisions with Python, SQL, Power BI & ML.",
+      },
+      { name: "twitter:image", content: "/og-image.png" },
     ],
+    links: [{ rel: "canonical", href: "/" }],
   }),
   component: Index,
 });
