@@ -93,7 +93,7 @@ export function Navbar() {
           >
             <Download className="h-4 w-4" /> Resume
           </a>
-          <button className="md:hidden text-foreground" onClick={() => setOpen((o) => !o)} aria-label="Menu">
+          <button className="flex h-11 w-11 items-center justify-center text-foreground md:hidden" onClick={() => setOpen((o) => !o)} aria-label="Menu">
             {open ? <X /> : <Menu />}
           </button>
         </div>
