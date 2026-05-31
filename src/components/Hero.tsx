@@ -1,6 +1,7 @@
 import { motion } from "motion/react";
 import { ArrowRight, Download, TrendingUp, BarChart3, Activity } from "lucide-react";
 import { ParticleField } from "./ParticleField";
+import { RippleButton, RippleLink } from "./Ripple";
 
 function scrollTo(id: string) {
   document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
@@ -103,21 +104,22 @@ export function Hero() {
             transition={{ delay: 0.4 }}
             className="mt-8 flex flex-wrap gap-4"
           >
-            <button
+            <RippleButton
               onClick={() => scrollTo("projects")}
               className="group inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold text-primary-foreground glow-cyan transition-transform hover:scale-105"
               style={{ background: "var(--gradient-brand)" }}
             >
               View My Work
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </button>
-            <a
+            </RippleButton>
+            <RippleLink
               href="/resume.pdf"
               download
               className="inline-flex items-center gap-2 rounded-full glass px-6 py-3 text-sm font-semibold transition-colors hover:bg-secondary"
             >
               <Download className="h-4 w-4" /> Download Resume
-            </a>
+            </RippleLink>
+
           </motion.div>
         </div>
 

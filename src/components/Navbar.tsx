@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Download } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 
 const links = [
@@ -84,10 +84,21 @@ export function Navbar() {
           ))}
         </ul>
 
-        <button className="md:hidden text-foreground" onClick={() => setOpen((o) => !o)} aria-label="Menu">
-          {open ? <X /> : <Menu />}
-        </button>
+        <div className="flex items-center gap-3">
+          <a
+            href="/resume.pdf"
+            download
+            className="hidden items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold text-primary-foreground glow-cyan transition-transform hover:scale-105 md:inline-flex"
+            style={{ background: "var(--gradient-brand)" }}
+          >
+            <Download className="h-4 w-4" /> Resume
+          </a>
+          <button className="md:hidden text-foreground" onClick={() => setOpen((o) => !o)} aria-label="Menu">
+            {open ? <X /> : <Menu />}
+          </button>
+        </div>
       </nav>
+
 
       <AnimatePresence>
         {open && (
