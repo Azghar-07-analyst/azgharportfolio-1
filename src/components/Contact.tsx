@@ -46,11 +46,8 @@ export function Contact() {
             </Reveal>
           ))}
         </div>
-
-        <p className="mt-16 text-sm text-muted-foreground">
-          © {new Date().getFullYear()} Syed Azghar Abbas Rizvi · Built with data & care.
-        </p>
       </div>
+
     </section>
   );
 }
