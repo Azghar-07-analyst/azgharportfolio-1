@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from "react";
-import { useInView } from "motion/react";
 
 export function CountUp({
   end,
@@ -13,22 +12,47 @@ export function CountUp({
   prefix?: string;
 }) {
   const ref = useRef<HTMLSpanElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-60px" });
   const [value, setValue] = useState(0);
+  const started = useRef(false);
 
   useEffect(() => {
-    if (!inView) return;
-    let raf = 0;
-    const start = performance.now();
-    const tick = (now: number) => {
-      const p = Math.min((now - start) / duration, 1);
-      const eased = 1 - Math.pow(1 - p, 3);
-      setValue(Math.round(eased * end));
-      if (p < 1) raf = requestAnimationFrame(tick);
+    const el = ref.current;
+    if (!el) return;
+
+    const run = () => {
+      if (started.current) return;
+      started.current = true;
+      let raf = 0;
+      const start = performance.now();
+      const tick = (now: number) => {
+        const p = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - p, 3);
+        setValue(Math.round(eased * end));
+        if (p < 1) raf = requestAnimationFrame(tick);
+      };
+      raf = requestAnimationFrame(tick);
+      return () => cancelAnimationFrame(raf);
     };
-    raf = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(raf);
-  }, [inView, end, duration]);
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            run();
+            observer.disconnect();
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+    observer.observe(el);
+
+    // Fallback: if already in viewport on mount
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom > 0) run();
+
+    return () => observer.disconnect();
+  }, [end, duration]);
 
   return (
     <span ref={ref}>

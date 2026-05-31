@@ -52,7 +52,7 @@ export function Projects() {
                 </div>
 
                 <a
-                  href="https://github.com/"
+                  href="https://github.com/Azghar-07-analyst"
                   target="_blank"
                   rel="noreferrer"
                   className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-foreground transition-colors hover:text-cyan"

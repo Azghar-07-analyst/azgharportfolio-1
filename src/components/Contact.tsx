@@ -4,8 +4,8 @@ import { Reveal } from "./Reveal";
 const items = [
   { icon: Mail, label: "Email", value: "azgharabbas@gmail.com", href: "mailto:azgharabbas@gmail.com" },
   { icon: Phone, label: "Phone", value: "+91 9150642752", href: "tel:+919150642752" },
-  { icon: Linkedin, label: "LinkedIn", value: "Connect with me", href: "https://linkedin.com/" },
-  { icon: Github, label: "GitHub", value: "View my code", href: "https://github.com/" },
+  { icon: Linkedin, label: "LinkedIn", value: "Connect with me", href: "https://linkedin.com/in/azghar-abbas" },
+  { icon: Github, label: "GitHub", value: "View my code", href: "https://github.com/Azghar-07-analyst" },
 ];
 
 export function Contact() {

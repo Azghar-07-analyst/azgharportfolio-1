@@ -1,8 +1,8 @@
 import { Mail, Phone, Linkedin, Github } from "lucide-react";
 
 const socials = [
-  { icon: Linkedin, href: "https://linkedin.com/", label: "LinkedIn" },
-  { icon: Github, href: "https://github.com/", label: "GitHub" },
+  { icon: Linkedin, href: "https://linkedin.com/in/azghar-abbas", label: "LinkedIn" },
+  { icon: Github, href: "https://github.com/Azghar-07-analyst", label: "GitHub" },
   { icon: Mail, href: "mailto:azgharabbas@gmail.com", label: "Email" },
   { icon: Phone, href: "tel:+919150642752", label: "Phone" },
 ];
