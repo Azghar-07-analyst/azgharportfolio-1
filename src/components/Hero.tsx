@@ -1,6 +1,7 @@
 import { motion } from "motion/react";
 import { ArrowRight, Download, TrendingUp, BarChart3, Activity } from "lucide-react";
 import { ParticleField } from "./ParticleField";
+import { RippleButton, RippleLink } from "./Ripple";
 
 function scrollTo(id: string) {
   document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
