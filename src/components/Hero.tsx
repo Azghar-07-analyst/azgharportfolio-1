@@ -1,5 +1,6 @@
 import { motion } from "motion/react";
 import { ArrowRight, Download, TrendingUp, BarChart3, Activity } from "lucide-react";
+import { ParticleField } from "./ParticleField";
 
 function scrollTo(id: string) {
   document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
@@ -54,7 +55,9 @@ export function Hero() {
       <div className="absolute inset-0 -z-10">
         <div className="absolute left-1/4 top-1/4 h-72 w-72 animate-spin-slow rounded-full bg-purple/20 blur-3xl" />
         <div className="absolute right-1/4 bottom-1/4 h-72 w-72 animate-pulse rounded-full bg-cyan/20 blur-3xl" />
+        <ParticleField />
       </div>
+
 
       <div className="mx-auto grid w-full max-w-6xl items-center gap-12 px-5 lg:grid-cols-2">
         <div>

@@ -52,9 +52,15 @@ export function Navbar() {
       }`}
     >
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-5">
-        <button onClick={() => go("home")} className="font-display text-lg font-extrabold tracking-tight">
-          SAA<span className="text-gradient">R</span>
+        <button onClick={() => go("home")} className="flex items-center gap-2" aria-label="Home">
+          <span
+            className="flex h-9 w-9 items-center justify-center rounded-xl font-display text-sm font-extrabold text-primary-foreground glow-cyan"
+            style={{ background: "var(--gradient-brand)" }}
+          >
+            AZ
+          </span>
         </button>
+
 
         <ul className="hidden items-center gap-1 md:flex">
           {links.map((l) => (

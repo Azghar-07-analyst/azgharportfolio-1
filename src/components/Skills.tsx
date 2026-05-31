@@ -67,10 +67,35 @@ export function Skills() {
   return (
     <section id="skills" className="relative scroll-mt-24 px-5 py-24">
       <div className="mx-auto max-w-6xl">
-        <Reveal>
-          <p className="text-sm font-semibold uppercase tracking-widest text-cyan">Skills</p>
-          <h2 className="mt-2 font-display text-3xl font-bold sm:text-4xl">Technical toolkit</h2>
-        </Reveal>
+        <div className="flex flex-wrap items-end justify-between gap-4">
+          <Reveal>
+            <p className="text-sm font-semibold uppercase tracking-widest text-cyan">Skills</p>
+            <h2 className="mt-2 font-display text-3xl font-bold sm:text-4xl">Technical toolkit</h2>
+          </Reveal>
+
+          <Reveal delay={0.1}>
+            <div className="inline-flex flex-col gap-2 rounded-2xl glass p-4">
+              <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-muted-foreground">
+                <span className="relative flex h-2.5 w-2.5">
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-cyan opacity-75" />
+                  <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-cyan" />
+                </span>
+                Currently Learning
+              </span>
+              <div className="flex flex-wrap gap-2">
+                {["Deep Learning", "Spark", "dbt"].map((t) => (
+                  <span
+                    key={t}
+                    className="rounded-full bg-secondary px-3 py-1 text-xs font-medium text-purple"
+                  >
+                    {t}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </Reveal>
+        </div>
+
 
         <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {groups.map((g, gi) => (
