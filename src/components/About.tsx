@@ -20,7 +20,7 @@ export function About() {
 
       <div className="mt-10 grid gap-12 lg:grid-cols-2">
         <Reveal delay={0.1}>
-          <p className="text-lg leading-relaxed text-muted-foreground">
+          <p className="text-center text-base leading-relaxed text-muted-foreground sm:text-lg lg:text-left">
             I'm a data analyst who transforms messy, complex datasets into clear, actionable
             insights. Passionate about <span className="text-foreground">Python</span>,{" "}
             <span className="text-foreground">SQL</span>, and building{" "}
