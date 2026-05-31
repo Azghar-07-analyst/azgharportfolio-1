@@ -1,5 +1,6 @@
 import { Github, ArrowUpRight } from "lucide-react";
 import { Reveal } from "./Reveal";
+import { TiltCard } from "./TiltCard";
 
 const projects = [
   {
