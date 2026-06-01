@@ -9,7 +9,7 @@ const certs = [
 export function Certifications() {
   return (
     <section id="certifications" className="section-px section-py relative scroll-mt-24">
-      <div className="mx-auto max-w-6xl">
+      <div className="mx-auto container-xl">
         <Reveal>
           <p className="text-sm font-semibold uppercase tracking-widest text-cyan">Certifications</p>
           <h2 className="heading-2 mt-2 font-display font-bold">Credentials</h2>

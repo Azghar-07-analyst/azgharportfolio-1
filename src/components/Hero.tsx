@@ -115,7 +115,7 @@ export function Hero() {
       </div>
 
 
-      <div className="mx-auto grid w-full max-w-6xl items-center gap-12 lg:grid-cols-2">
+      <div className="mx-auto grid w-full container-xl items-center gap-12 lg:grid-cols-2">
         <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
           <motion.span
             initial={{ opacity: 0, y: 16 }}
