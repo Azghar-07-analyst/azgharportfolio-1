@@ -40,9 +40,23 @@ export function Navbar() {
     return () => observer.disconnect();
   }, []);
 
+  const scrollTo = (id: string) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    const navH = 80; // sticky navbar offset
+    const top = el.getBoundingClientRect().top + window.scrollY - navH;
+    window.scrollTo({ top, behavior: "smooth" });
+    setActive(id);
+  };
+
   const go = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-    setOpen(false);
+    if (open) {
+      // Close the mobile drawer first, then scroll once layout settles
+      setOpen(false);
+      setTimeout(() => scrollTo(id), 280);
+    } else {
+      scrollTo(id);
+    }
   };
 
   return (
