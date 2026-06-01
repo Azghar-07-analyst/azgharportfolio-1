@@ -10,7 +10,7 @@ const stats = [
 
 export function About() {
   return (
-    <section id="about" className="section-px section-py relative mx-auto max-w-6xl scroll-mt-24">
+    <section id="about" className="section-px section-py container-xl relative scroll-mt-24">
       <Reveal className="text-center lg:text-left">
         <p className="text-sm font-semibold uppercase tracking-widest text-cyan">About</p>
         <h2 className="heading-2 mt-2 font-display font-bold">
@@ -18,36 +18,34 @@ export function About() {
         </h2>
       </Reveal>
 
-      <div className="mt-10 grid gap-12 lg:grid-cols-2">
-        <Reveal delay={0.1}>
-          <p className="text-center text-base leading-relaxed text-muted-foreground sm:text-lg lg:text-left">
-            I'm a data analyst who transforms messy, complex datasets into clear, actionable
-            insights. Passionate about <span className="text-foreground">Python</span>,{" "}
-            <span className="text-foreground">SQL</span>, and building{" "}
-            <span className="text-foreground">dashboards that actually drive decisions</span>.
-          </p>
-        </Reveal>
+      <Reveal delay={0.1}>
+        <p className="mt-8 max-w-3xl text-center text-lg leading-relaxed text-muted-foreground lg:text-left lg:text-xl">
+          I'm a data analyst who transforms messy, complex datasets into clear, actionable
+          insights. Passionate about <span className="text-foreground">Python</span>,{" "}
+          <span className="text-foreground">SQL</span>, and building{" "}
+          <span className="text-foreground">dashboards that actually drive decisions</span>.
+        </p>
+      </Reveal>
 
-        <div className="grid gap-4 sm:grid-cols-3 lg:grid-cols-1">
-          {stats.map((s, i) => (
-            <Reveal key={s.label} delay={0.15 + i * 0.1}>
-              <div className="flex items-center gap-4 rounded-2xl glass p-5 transition-transform hover:-translate-y-1">
-                <div
-                  className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl"
-                  style={{ background: "var(--gradient-brand)" }}
-                >
-                  <s.icon className="h-6 w-6 text-primary-foreground" />
-                </div>
-                <div>
-                  <p className="font-display text-2xl font-extrabold">
-                    <CountUp end={s.value} suffix={s.suffix} />
-                  </p>
-                  <p className="text-sm text-muted-foreground">{s.label}</p>
-                </div>
+      <div className="mt-12 grid gap-6 sm:grid-cols-3">
+        {stats.map((s, i) => (
+          <Reveal key={s.label} delay={0.15 + i * 0.1}>
+            <div className="flex h-full items-center gap-5 rounded-2xl glass p-7 transition-transform hover:-translate-y-1">
+              <div
+                className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl"
+                style={{ background: "var(--gradient-brand)" }}
+              >
+                <s.icon className="h-7 w-7 text-primary-foreground" />
               </div>
-            </Reveal>
-          ))}
-        </div>
+              <div>
+                <p className="font-display text-3xl font-extrabold">
+                  <CountUp end={s.value} suffix={s.suffix} />
+                </p>
+                <p className="text-sm text-muted-foreground">{s.label}</p>
+              </div>
+            </div>
+          </Reveal>
+        ))}
       </div>
     </section>
   );
