@@ -197,3 +197,16 @@
 .animate-ripple {
   animation: ripple 0.6s ease-out forwards;
 }
+
+.skill-pill {
+  transition: all 0.25s ease;
+  cursor: default;
+}
+
+.skill-pill:hover {
+  border-color: var(--cyan);
+  color: var(--cyan);
+  box-shadow: var(--shadow-glow-cyan);
+  transform: translateY(-2px);
+}
+
