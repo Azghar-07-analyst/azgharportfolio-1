@@ -11,10 +11,10 @@ const items = [
 export function Contact() {
   return (
     <section id="contact" className="section-px section-py relative scroll-mt-24">
-      <div className="mx-auto max-w-4xl text-center">
+      <div className="container-xl text-center">
         <Reveal>
           <p className="text-sm font-semibold uppercase tracking-widest text-cyan">Contact</p>
-          <h2 className="mt-2 font-display font-extrabold" style={{ fontSize: "clamp(1.75rem, 5vw, 3rem)" }}>
+          <h2 className="heading-2 mt-2 font-display font-extrabold">
             Let's <span className="text-gradient">Work Together</span>
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-base text-muted-foreground">
@@ -23,7 +23,7 @@ export function Contact() {
           </p>
         </Reveal>
 
-        <div className="mt-10 grid gap-4 sm:grid-cols-2">
+        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {items.map((it, i) => (
             <Reveal key={it.label} delay={i * 0.08}>
               <a

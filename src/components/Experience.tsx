@@ -10,7 +10,7 @@ const bullets = [
 export function Experience() {
   return (
     <section id="experience" className="section-px section-py relative scroll-mt-24">
-      <div className="mx-auto max-w-6xl">
+      <div className="mx-auto container-xl">
         <Reveal>
           <p className="text-sm font-semibold uppercase tracking-widest text-cyan">Experience</p>
           <h2 className="heading-2 mt-2 font-display font-bold">Where I've worked</h2>

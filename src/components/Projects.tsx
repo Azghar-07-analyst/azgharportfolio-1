@@ -26,7 +26,7 @@ const projects = [
 export function Projects() {
   return (
     <section id="projects" className="section-px section-py relative scroll-mt-24">
-      <div className="mx-auto max-w-6xl">
+      <div className="mx-auto container-xl">
         <Reveal>
           <p className="text-sm font-semibold uppercase tracking-widest text-cyan">Projects</p>
           <h2 className="heading-2 mt-2 font-display font-bold">Selected work</h2>

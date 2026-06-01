@@ -10,7 +10,7 @@ const socials = [
 export function Footer() {
   return (
     <footer className="section-px border-t border-border py-10">
-      <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-6 text-center sm:flex-row sm:text-left">
+      <div className="mx-auto flex container-xl flex-col items-center justify-between gap-6 text-center sm:flex-row sm:text-left">
         <p className="text-sm leading-relaxed text-muted-foreground">
           Built with data &amp; passion — <span className="text-foreground">Syed Azghar Abbas Rizvi</span> © 2026
         </p>

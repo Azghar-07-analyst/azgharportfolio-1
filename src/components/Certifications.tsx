@@ -9,16 +9,16 @@ const certs = [
 export function Certifications() {
   return (
     <section id="certifications" className="section-px section-py relative scroll-mt-24">
-      <div className="mx-auto max-w-6xl">
+      <div className="mx-auto container-xl">
         <Reveal>
           <p className="text-sm font-semibold uppercase tracking-widest text-cyan">Certifications</p>
           <h2 className="heading-2 mt-2 font-display font-bold">Credentials</h2>
         </Reveal>
 
-        <div className="mt-10 grid gap-6 sm:grid-cols-2">
+        <div className="mx-auto mt-10 grid max-w-5xl gap-8 sm:grid-cols-2">
           {certs.map((c, i) => (
             <Reveal key={c.title} delay={i * 0.12}>
-              <div className="group relative mx-auto w-full max-w-[500px] overflow-hidden rounded-2xl glass p-7 transition-all duration-300 hover:-translate-y-1 hover:glow-cyan">
+              <div className="group relative h-full w-full overflow-hidden rounded-2xl glass p-8 transition-all duration-300 hover:-translate-y-1 hover:glow-cyan sm:p-10">
                 <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-mesh blur-2xl opacity-60 transition-opacity group-hover:opacity-100" />
 
                 {/* Verified tag */}
