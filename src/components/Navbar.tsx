@@ -40,9 +40,23 @@ export function Navbar() {
     return () => observer.disconnect();
   }, []);
 
+  const scrollTo = (id: string) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    const navH = 80; // sticky navbar offset
+    const top = el.getBoundingClientRect().top + window.scrollY - navH;
+    window.scrollTo({ top, behavior: "smooth" });
+    setActive(id);
+  };
+
   const go = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-    setOpen(false);
+    if (open) {
+      // Close the mobile drawer first, then scroll once layout settles
+      setOpen(false);
+      setTimeout(() => scrollTo(id), 280);
+    } else {
+      scrollTo(id);
+    }
   };
 
   return (
@@ -67,8 +81,8 @@ export function Navbar() {
             <li key={l.id}>
               <button
                 onClick={() => go(l.id)}
-                className={`relative rounded-full px-4 py-2 text-sm font-medium transition-colors ${
-                  active === l.id ? "text-foreground" : "text-muted-foreground hover:text-foreground"
+                className={`nav-link relative rounded-full px-4 py-2 text-sm font-medium transition-colors ${
+                  active === l.id ? "text-foreground" : "text-muted-foreground hover:text-cyan"
                 }`}
               >
                 {active === l.id && (
@@ -113,8 +127,8 @@ export function Navbar() {
                 <li key={l.id}>
                   <button
                     onClick={() => go(l.id)}
-                    className={`flex min-h-[44px] w-full items-center px-6 text-left text-sm font-medium ${
-                      active === l.id ? "text-cyan" : "text-muted-foreground"
+                    className={`flex min-h-[44px] w-full items-center px-6 text-left text-sm font-medium transition-colors active:text-cyan ${
+                      active === l.id ? "text-cyan" : "text-muted-foreground hover:text-cyan"
                     }`}
                   >
                     {l.label}
