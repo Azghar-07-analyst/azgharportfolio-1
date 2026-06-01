@@ -127,8 +127,8 @@ export function Navbar() {
                 <li key={l.id}>
                   <button
                     onClick={() => go(l.id)}
-                    className={`flex min-h-[44px] w-full items-center px-6 text-left text-sm font-medium ${
-                      active === l.id ? "text-cyan" : "text-muted-foreground"
+                    className={`flex min-h-[44px] w-full items-center px-6 text-left text-sm font-medium transition-colors active:text-cyan ${
+                      active === l.id ? "text-cyan" : "text-muted-foreground hover:text-cyan"
                     }`}
                   >
                     {l.label}
