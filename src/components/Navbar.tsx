@@ -81,8 +81,8 @@ export function Navbar() {
             <li key={l.id}>
               <button
                 onClick={() => go(l.id)}
-                className={`relative rounded-full px-4 py-2 text-sm font-medium transition-colors ${
-                  active === l.id ? "text-foreground" : "text-muted-foreground hover:text-foreground"
+                className={`nav-link relative rounded-full px-4 py-2 text-sm font-medium transition-colors ${
+                  active === l.id ? "text-foreground" : "text-muted-foreground hover:text-cyan"
                 }`}
               >
                 {active === l.id && (
