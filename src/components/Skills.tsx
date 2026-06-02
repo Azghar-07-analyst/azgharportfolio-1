@@ -82,21 +82,19 @@ export function Skills() {
               />
               <div className="flex flex-wrap gap-2.5">
                 {g.skills.map((s, si) => (
-                  <motion.span
-                    key={s}
-                    variants={badgeVariants}
-                    className="skill-wave inline-block rounded-full"
-                    style={{ animationDelay: `${si * 0.25}s` }}
-                  >
-                    <span className={`skill-pill skill-${g.variant} relative inline-flex items-center gap-1.5 rounded-full border border-border bg-secondary px-4 py-2 text-sm font-medium`}>
-                      <span className="skill-fill-bg" aria-hidden />
-                      <span className="skill-label relative z-10">{s}</span>
-                      {g.variant === "bi" && (
-                        <BarChart3 className="skill-bi-icon relative z-10 h-4 w-4 text-cyan" aria-hidden />
-                      )}
+                  <motion.span key={s} variants={badgeVariants} className="inline-block">
+                    <span className="skill-wave inline-block rounded-full" style={{ animationDelay: `${si * 0.25}s` }}>
+                      <span className={`skill-pill skill-${g.variant} relative inline-flex items-center gap-1.5 overflow-hidden rounded-full border border-border bg-secondary px-4 py-2 text-sm font-medium`}>
+                        <span className="skill-fill-bg" aria-hidden />
+                        <span className="skill-label relative z-10">{s}</span>
+                        {g.variant === "bi" && (
+                          <BarChart3 className="skill-bi-icon relative z-10 h-4 w-4 text-cyan" aria-hidden />
+                        )}
+                      </span>
                     </span>
                   </motion.span>
                 ))}
+
               </div>
             </motion.div>
           ))}
