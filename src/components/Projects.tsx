@@ -34,8 +34,8 @@ export function Projects() {
 
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {projects.map((p, i) => (
-            <Reveal key={p.title} delay={i * 0.1}>
-              <TiltCard className="group flex h-full flex-col rounded-2xl glass p-6 transition-shadow duration-300 hover:glow-purple [transform-style:preserve-3d]">
+            <Reveal key={p.title} delay={i * 0.1} direction={i % 2 === 0 ? "left" : "right"}>
+              <TiltCard className="card-glow-border group flex h-full flex-col rounded-2xl glass p-6 transition-shadow duration-300 hover:glow-purple [transform-style:preserve-3d]">
                 <div className="mb-4 h-1 w-12 rounded-full" style={{ background: "var(--gradient-brand)" }} />
                 <h3 className="font-display text-xl font-bold leading-snug">{p.title}</h3>
                 <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">{p.impact}</p>
@@ -44,12 +44,13 @@ export function Projects() {
                   {p.stack.map((s) => (
                     <span
                       key={s}
-                      className="rounded-full bg-secondary px-3 py-1 text-xs font-medium text-cyan"
+                      className="tech-badge rounded-full bg-secondary px-3 py-1 text-xs font-medium text-cyan"
                     >
                       {s}
                     </span>
                   ))}
                 </div>
+
 
                 <a
                   href="https://github.com/Azghar-07-analyst"
