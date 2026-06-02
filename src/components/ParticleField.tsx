@@ -17,6 +17,17 @@ export function ParticleField() {
 
     type P = { x: number; y: number; vx: number; vy: number };
     let points: P[] = [];
+    const mouse = { x: -9999, y: -9999, active: false };
+
+    const onMove = (e: MouseEvent) => {
+      const rect = canvas.getBoundingClientRect();
+      mouse.x = e.clientX - rect.left;
+      mouse.y = e.clientY - rect.top;
+      mouse.active = true;
+    };
+    const onLeave = () => {
+      mouse.active = false;
+    };
 
     const resize = () => {
       const rect = canvas.getBoundingClientRect();
