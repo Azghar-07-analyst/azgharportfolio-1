@@ -18,7 +18,16 @@ export function Experience() {
         </Reveal>
 
         <Reveal delay={0.1}>
-          <div className="group relative mt-10 overflow-hidden rounded-2xl glass p-7 transition-all duration-300 hover:-translate-y-1 hover:glow-purple sm:p-9">
+          <div className="group relative mt-10 overflow-hidden rounded-2xl glass p-7 pl-8 transition-all duration-300 hover:-translate-y-1 hover:glow-purple sm:p-9 sm:pl-11">
+            <motion.div
+              aria-hidden
+              className="absolute left-0 top-0 w-[3px] origin-top rounded-full"
+              style={{ background: "var(--gradient-brand)", height: "100%" }}
+              initial={{ scaleY: 0 }}
+              whileInView={{ scaleY: 1 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+            />
             <div className="absolute -left-12 -top-12 h-40 w-40 rounded-full bg-mesh blur-3xl opacity-50 transition-opacity group-hover:opacity-90" />
             <div className="relative flex flex-wrap items-start justify-between gap-4">
               <div className="flex items-center gap-4">
