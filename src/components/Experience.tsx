@@ -1,4 +1,5 @@
 import { MapPin, Calendar } from "lucide-react";
+import { motion } from "motion/react";
 import { Reveal } from "./Reveal";
 
 const bullets = [
