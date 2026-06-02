@@ -1,4 +1,5 @@
 import { BadgeCheck, ShieldCheck, Award } from "lucide-react";
+import { motion } from "motion/react";
 import { Reveal } from "./Reveal";
 
 const certs = [
