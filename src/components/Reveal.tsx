@@ -1,24 +1,32 @@
 import { motion, type Variants } from "motion/react";
 import type { ReactNode } from "react";
 
-const variants: Variants = {
-  hidden: { opacity: 0, y: 28 },
-  show: { opacity: 1, y: 0 },
-};
+type Direction = "up" | "left" | "right";
+
+function makeVariants(direction: Direction): Variants {
+  const offset =
+    direction === "left" ? { x: -60, y: 0 } : direction === "right" ? { x: 60, y: 0 } : { x: 0, y: 28 };
+  return {
+    hidden: { opacity: 0, scale: 0.95, ...offset },
+    show: { opacity: 1, scale: 1, x: 0, y: 0 },
+  };
+}
 
 export function Reveal({
   children,
   delay = 0,
+  direction = "up",
   className,
 }: {
   children: ReactNode;
   delay?: number;
+  direction?: Direction;
   className?: string;
 }) {
   return (
     <motion.div
       className={className}
-      variants={variants}
+      variants={makeVariants(direction)}
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, margin: "-80px" }}
