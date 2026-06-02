@@ -16,9 +16,16 @@ export function Certifications() {
           <h2 className="heading-2 mt-2 font-display font-bold">Credentials</h2>
         </Reveal>
 
-        <div className="mx-auto mt-10 grid max-w-5xl gap-8 sm:grid-cols-2">
+        <div className="mx-auto mt-10 grid max-w-5xl gap-8 sm:grid-cols-2" style={{ perspective: "1200px" }}>
           {certs.map((c, i) => (
-            <Reveal key={c.title} delay={i * 0.12}>
+            <motion.div
+              key={c.title}
+              initial={{ opacity: 0, rotateY: 180 }}
+              whileInView={{ opacity: 1, rotateY: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.8, delay: i * 0.18, ease: [0.22, 1, 0.36, 1] }}
+              style={{ transformStyle: "preserve-3d" }}
+            >
               <div className="group relative h-full w-full overflow-hidden rounded-2xl glass p-8 transition-all duration-300 hover:-translate-y-1 hover:glow-cyan sm:p-10">
                 <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-mesh blur-2xl opacity-60 transition-opacity group-hover:opacity-100" />
 
