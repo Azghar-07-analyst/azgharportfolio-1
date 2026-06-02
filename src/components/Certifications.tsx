@@ -58,7 +58,7 @@ export function Certifications() {
                   </div>
                 </div>
               </div>
-            </Reveal>
+            </motion.div>
           ))}
         </div>
       </div>
