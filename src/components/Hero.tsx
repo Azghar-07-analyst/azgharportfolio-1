@@ -2,6 +2,9 @@ import { motion } from "motion/react";
 import { ArrowRight, Download, TrendingUp, BarChart3, Activity } from "lucide-react";
 import { ParticleField } from "./ParticleField";
 import { RippleButton, RippleLink } from "./Ripple";
+import { Typewriter, TypingOnce } from "./Typewriter";
+
+const nameWords = ["Syed", "Azghar", "Abbas", "Rizvi"];
 
 function scrollTo(id: string) {
   document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
@@ -129,30 +132,41 @@ export function Hero() {
             Open to Work — Let's Connect
           </motion.span>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="mt-5 font-display font-extrabold leading-tight tracking-tight"
+          <h1
+            className="mt-5 flex flex-wrap justify-center gap-x-3 font-display font-extrabold leading-tight tracking-tight lg:justify-start"
             style={{ fontSize: "clamp(2rem, 8vw, 5rem)" }}
           >
-            Syed Azghar <br />
-            Abbas <span className="text-gradient">Rizvi</span>
-          </motion.h1>
+            {nameWords.map((word, i) => (
+              <motion.span
+                key={word}
+                initial={{ opacity: 0, y: 28 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.15 + i * 0.18, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+                className={i === nameWords.length - 1 ? "text-gradient" : undefined}
+              >
+                {word}
+              </motion.span>
+            ))}
+          </h1>
 
           <motion.p
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="mt-4 text-lg font-semibold text-foreground/90 sm:text-2xl"
+            transition={{ delay: 0.5 }}
+            className="mt-5 text-lg font-semibold text-foreground/90 sm:text-2xl"
           >
-            Turning Raw Data into Strategic Decisions
+            I am a{" "}
+            <Typewriter words={["Data Analyst", "Data Scientist", "ML Engineer", "Insight Architect"]} />
           </motion.p>
 
+          <p className="mt-3 text-lg font-semibold text-foreground/90 sm:text-2xl">
+            <TypingOnce text="Turning Raw Data into Strategic Decisions" startDelay={900} />
+          </p>
+
           <motion.p
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
+            transition={{ delay: 0.7 }}
             className="mt-3 text-base text-muted-foreground"
           >
             Data Analyst • Python • SQL • Power BI • Machine Learning
@@ -161,12 +175,12 @@ export function Hero() {
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4 }}
+            transition={{ delay: 0.8 }}
             className="mt-8 flex w-full flex-col gap-4 sm:w-auto sm:flex-row sm:flex-wrap"
           >
             <RippleButton
               onClick={() => scrollTo("projects")}
-              className="group inline-flex min-h-[44px] w-full items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold text-primary-foreground glow-cyan transition-transform hover:scale-105 sm:w-auto"
+              className="btn-shimmer group inline-flex min-h-[44px] w-full items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold text-primary-foreground glow-cyan transition-transform hover:scale-105 sm:w-auto"
               style={{ background: "var(--gradient-brand)" }}
             >
               View My Work
@@ -175,12 +189,13 @@ export function Hero() {
             <RippleLink
               href="/resume.pdf"
               download
-              className="inline-flex min-h-[44px] w-full items-center justify-center gap-2 rounded-full glass px-6 py-3 text-sm font-semibold transition-colors hover:bg-secondary sm:w-auto"
+              className="btn-shimmer inline-flex min-h-[44px] w-full items-center justify-center gap-2 rounded-full glass px-6 py-3 text-sm font-semibold transition-colors hover:bg-secondary sm:w-auto"
             >
               <Download className="h-4 w-4" /> Download Resume
             </RippleLink>
 
           </motion.div>
+
         </div>
 
         <motion.div

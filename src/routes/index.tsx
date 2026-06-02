@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Navbar } from "@/components/Navbar";
+import { CustomCursor } from "@/components/CustomCursor";
 import { ScrollProgress } from "@/components/ScrollProgress";
 import { Hero } from "@/components/Hero";
 import { About } from "@/components/About";
@@ -45,6 +46,7 @@ export const Route = createFileRoute("/")({
 function Index() {
   return (
     <main className="relative overflow-x-hidden">
+      <CustomCursor />
       <ScrollProgress />
       <Navbar />
       <Hero />

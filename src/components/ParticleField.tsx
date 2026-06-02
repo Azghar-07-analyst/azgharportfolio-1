@@ -17,6 +17,17 @@ export function ParticleField() {
 
     type P = { x: number; y: number; vx: number; vy: number };
     let points: P[] = [];
+    const mouse = { x: -9999, y: -9999, active: false };
+
+    const onMove = (e: MouseEvent) => {
+      const rect = canvas.getBoundingClientRect();
+      mouse.x = e.clientX - rect.left;
+      mouse.y = e.clientY - rect.top;
+      mouse.active = true;
+    };
+    const onLeave = () => {
+      mouse.active = false;
+    };
 
     const resize = () => {
       const rect = canvas.getBoundingClientRect();
@@ -37,6 +48,20 @@ export function ParticleField() {
     const draw = () => {
       ctx.clearRect(0, 0, w, h);
       for (const p of points) {
+        if (mouse.active) {
+          const dx = p.x - mouse.x;
+          const dy = p.y - mouse.y;
+          const dist = Math.hypot(dx, dy);
+          if (dist < 120 && dist > 0.01) {
+            const force = (120 - dist) / 120;
+            p.vx += (dx / dist) * force * 0.5;
+            p.vy += (dy / dist) * force * 0.5;
+          }
+        }
+        p.vx *= 0.96;
+        p.vy *= 0.96;
+        if (Math.abs(p.vx) < 0.05) p.vx += (Math.random() - 0.5) * 0.1;
+        if (Math.abs(p.vy) < 0.05) p.vy += (Math.random() - 0.5) * 0.1;
         p.x += p.vx;
         p.y += p.vy;
         if (p.x < 0 || p.x > w) p.vx *= -1;
@@ -70,9 +95,13 @@ export function ParticleField() {
     if (!reduce) draw();
     else draw(), cancelAnimationFrame(raf);
     window.addEventListener("resize", resize);
+    window.addEventListener("mousemove", onMove);
+    canvas.addEventListener("mouseleave", onLeave);
     return () => {
       cancelAnimationFrame(raf);
       window.removeEventListener("resize", resize);
+      window.removeEventListener("mousemove", onMove);
+      canvas.removeEventListener("mouseleave", onLeave);
     };
   }, []);
 

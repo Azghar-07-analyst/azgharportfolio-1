@@ -25,7 +25,7 @@ export function Contact() {
 
         <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {items.map((it, i) => (
-            <Reveal key={it.label} delay={i * 0.08}>
+            <Reveal key={it.label} delay={i * 0.12} direction="left">
               <a
                 href={it.href}
                 target={it.href.startsWith("http") ? "_blank" : undefined}
