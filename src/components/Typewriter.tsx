@@ -33,7 +33,7 @@ export function Typewriter({
       if (text.length < current.length) {
         timeout = setTimeout(() => setText(current.slice(0, text.length + 1)), 80);
       } else {
-        timeout = setTimeout(() => setPhase("pausing"), 1000);
+        timeout = setTimeout(() => setPhase("pausing"), 80);
       }
     } else if (phase === "pausing") {
       timeout = setTimeout(() => setPhase("deleting"), 1000);
