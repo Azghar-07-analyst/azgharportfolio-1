@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 import { Github, ArrowUpRight } from "lucide-react";
 import { motion, type Variants } from "motion/react";
 import { Reveal } from "./Reveal";
