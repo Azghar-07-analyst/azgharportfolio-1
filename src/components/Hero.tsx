@@ -210,6 +210,8 @@ export function Hero() {
           <FloatingDashboard />
         </motion.div>
       </div>
+
+      <ScrollIndicator />
     </section>
   );
 }
