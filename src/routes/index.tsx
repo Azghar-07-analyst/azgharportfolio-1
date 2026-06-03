@@ -4,6 +4,7 @@ import { CustomCursor } from "@/components/CustomCursor";
 import { ScrollProgress } from "@/components/ScrollProgress";
 import { Hero } from "@/components/Hero";
 import { About } from "@/components/About";
+import { ByTheNumbers } from "@/components/ByTheNumbers";
 import { Offerings } from "@/components/Offerings";
 import { Skills } from "@/components/Skills";
 import { Projects } from "@/components/Projects";
@@ -12,6 +13,10 @@ import { Experience } from "@/components/Experience";
 import { Certifications } from "@/components/Certifications";
 import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
+import { SectionDivider } from "@/components/SectionDivider";
+import { NoiseTexture } from "@/components/NoiseTexture";
+import { Loader } from "@/components/Loader";
+import { BackToTop } from "@/components/BackToTop";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -46,17 +51,30 @@ export const Route = createFileRoute("/")({
 function Index() {
   return (
     <main className="relative overflow-x-hidden">
+      <Loader />
+      <NoiseTexture />
       <CustomCursor />
       <ScrollProgress />
+      <BackToTop />
       <Navbar />
       <Hero />
+      <SectionDivider />
       <About />
+      <SectionDivider />
+      <ByTheNumbers />
+      <SectionDivider />
       <Offerings />
+      <SectionDivider />
       <Skills />
+      <SectionDivider />
       <Projects />
+      <SectionDivider />
       <QuoteBanner />
+      <SectionDivider />
       <Experience />
+      <SectionDivider />
       <Certifications />
+      <SectionDivider />
       <Contact />
       <Footer />
     </main>
