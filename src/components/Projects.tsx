@@ -72,7 +72,7 @@ export function Projects() {
                       <span
                         key={s}
                         className="tech-badge rounded-full bg-secondary px-3 py-1 text-xs font-medium text-cyan"
-                        style={{ ["--badge-i" as string]: si } as Record<string, number>}
+                        style={{ "--badge-i": si } as CSSProperties}
                       >
                         {s}
                       </span>
