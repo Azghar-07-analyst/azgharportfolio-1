@@ -1,8 +1,42 @@
 import { motion, type Variants } from "motion/react";
-import { BarChart3 } from "lucide-react";
+import {
+  BarChart3,
+  Code2,
+  Database,
+  Sigma,
+  AreaChart,
+  Table,
+  Table2,
+  Hash,
+  Brain,
+  Flame,
+  TrendingUp,
+  Search,
+  SlidersHorizontal,
+  Workflow,
+  type LucideIcon,
+} from "lucide-react";
 import { Reveal } from "./Reveal";
 
 type Variant = "flip" | "bi" | "ripple" | "fill" | "wiggle";
+
+const skillIcons: Record<string, LucideIcon> = {
+  Python: Code2,
+  SQL: Database,
+  R: Sigma,
+  "Power BI": BarChart3,
+  Tableau: AreaChart,
+  Excel: Table,
+  Pandas: Table2,
+  NumPy: Hash,
+  "Scikit-Learn": Brain,
+  PyTorch: Flame,
+  Regression: TrendingUp,
+  EDA: Search,
+  "Feature Engineering": SlidersHorizontal,
+  ETL: Workflow,
+  MySQL: Database,
+};
 
 const groups: { title: string; skills: string[]; variant: Variant }[] = [
   { title: "Programming", skills: ["Python", "SQL", "R"], variant: "flip" },
