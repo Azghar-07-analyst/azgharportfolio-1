@@ -1,6 +1,8 @@
 import { motion } from "motion/react";
 import { ArrowRight, Download, TrendingUp, BarChart3, Activity } from "lucide-react";
 import { ParticleField } from "./ParticleField";
+import { AuroraBackground } from "./AuroraBackground";
+import { ScrollIndicator } from "./ScrollIndicator";
 import { RippleButton, RippleLink } from "./Ripple";
 import { Typewriter, TypingOnce } from "./Typewriter";
 
