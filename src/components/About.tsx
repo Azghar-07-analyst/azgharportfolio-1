@@ -10,7 +10,8 @@ const stats = [
 
 export function About() {
   return (
-    <section id="about" className="section-px section-py container-xl relative scroll-mt-24">
+    <section id="about" className="section-px section-py container-xl relative overflow-hidden scroll-mt-24">
+      <div className="about-spotlight" aria-hidden />
       <Reveal className="text-center lg:text-left">
         <p className="text-sm font-semibold uppercase tracking-widest text-cyan">About</p>
         <h2 className="heading-2 mt-2 font-display font-bold">

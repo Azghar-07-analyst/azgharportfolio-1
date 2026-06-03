@@ -1,8 +1,42 @@
 import { motion, type Variants } from "motion/react";
-import { BarChart3 } from "lucide-react";
+import {
+  BarChart3,
+  Code2,
+  Database,
+  Sigma,
+  AreaChart,
+  Table,
+  Table2,
+  Hash,
+  Brain,
+  Flame,
+  TrendingUp,
+  Search,
+  SlidersHorizontal,
+  Workflow,
+  type LucideIcon,
+} from "lucide-react";
 import { Reveal } from "./Reveal";
 
 type Variant = "flip" | "bi" | "ripple" | "fill" | "wiggle";
+
+const skillIcons: Record<string, LucideIcon> = {
+  Python: Code2,
+  SQL: Database,
+  R: Sigma,
+  "Power BI": BarChart3,
+  Tableau: AreaChart,
+  Excel: Table,
+  Pandas: Table2,
+  NumPy: Hash,
+  "Scikit-Learn": Brain,
+  PyTorch: Flame,
+  Regression: TrendingUp,
+  EDA: Search,
+  "Feature Engineering": SlidersHorizontal,
+  ETL: Workflow,
+  MySQL: Database,
+};
 
 const groups: { title: string; skills: string[]; variant: Variant }[] = [
   { title: "Programming", skills: ["Python", "SQL", "R"], variant: "flip" },
@@ -81,19 +115,20 @@ export function Skills() {
                 style={{ background: "var(--gradient-brand)" }}
               />
               <div className="flex flex-wrap gap-2.5">
-                {g.skills.map((s, si) => (
-                  <motion.span key={s} variants={badgeVariants} className="inline-block">
-                    <span className="skill-wave inline-block rounded-full" style={{ animationDelay: `${si * 0.25}s` }}>
-                      <span className={`skill-pill skill-${g.variant} relative inline-flex items-center gap-1.5 overflow-hidden rounded-full border border-border bg-secondary px-4 py-2 text-sm font-medium`}>
-                        <span className="skill-fill-bg" aria-hidden />
-                        <span className="skill-label relative z-10">{s}</span>
-                        {g.variant === "bi" && (
-                          <BarChart3 className="skill-bi-icon relative z-10 h-4 w-4 text-cyan" aria-hidden />
-                        )}
+                {g.skills.map((s, si) => {
+                  const Icon = skillIcons[s];
+                  return (
+                    <motion.span key={s} variants={badgeVariants} className="inline-block">
+                      <span className="skill-wave inline-block rounded-full" style={{ animationDelay: `${si * 0.25}s` }}>
+                        <span className={`skill-pill skill-${g.variant} relative inline-flex items-center gap-1.5 overflow-hidden rounded-full border border-border bg-secondary px-4 py-2 text-sm font-medium`}>
+                          <span className="skill-fill-bg" aria-hidden />
+                          {Icon && <Icon className="relative z-10 h-4 w-4 text-cyan" aria-hidden />}
+                          <span className="skill-label relative z-10">{s}</span>
+                        </span>
                       </span>
-                    </span>
-                  </motion.span>
-                ))}
+                    </motion.span>
+                  );
+                })}
 
               </div>
             </motion.div>

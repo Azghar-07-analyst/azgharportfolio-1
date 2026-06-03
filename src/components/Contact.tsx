@@ -10,8 +10,8 @@ const items = [
 
 export function Contact() {
   return (
-    <section id="contact" className="section-px section-py relative scroll-mt-24">
-      <div className="container-xl text-center">
+    <section id="contact" className="contact-bg section-px section-py relative overflow-hidden scroll-mt-24">
+      <div className="relative container-xl text-center">
         <Reveal>
           <p className="text-sm font-semibold uppercase tracking-widest text-cyan">Contact</p>
           <h2 className="heading-2 mt-2 font-display font-extrabold">
