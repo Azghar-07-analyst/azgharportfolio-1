@@ -771,6 +771,155 @@
 }
 
 
+/* ===== Light theme overrides ===== */
+:root.light {
+  --background: oklch(0.98 0.005 250);
+  --foreground: oklch(0.2 0.02 265);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.2 0.02 265);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.2 0.02 265);
+  --primary: oklch(0.58 0.16 220);
+  --primary-foreground: oklch(0.99 0 0);
+  --secondary: oklch(0.93 0.012 250);
+  --secondary-foreground: oklch(0.22 0.02 265);
+  --muted: oklch(0.93 0.012 250);
+  --muted-foreground: oklch(0.45 0.02 260);
+  --accent: oklch(0.55 0.24 295);
+  --accent-foreground: oklch(0.99 0 0);
+  --border: oklch(0.87 0.012 255);
+  --input: oklch(0.9 0.012 255);
+  --ring: oklch(0.58 0.16 220);
+  --cyan: oklch(0.56 0.15 230);
+  --purple: oklch(0.5 0.24 295);
+  --gradient-mesh: radial-gradient(ellipse 80% 60% at 20% 0%, oklch(0.55 0.24 295 / 0.12), transparent 60%),
+    radial-gradient(ellipse 70% 60% at 90% 20%, oklch(0.78 0.16 215 / 0.12), transparent 55%),
+    radial-gradient(ellipse 90% 70% at 50% 110%, oklch(0.55 0.24 295 / 0.09), transparent 60%);
+  --shadow-glow-cyan: 0 0 40px -8px oklch(0.56 0.15 230 / 0.35);
+  --shadow-glow-purple: 0 0 40px -8px oklch(0.55 0.24 295 / 0.35);
+  --glass-bg: oklch(1 0 0 / 0.65);
+  --glass-border: oklch(0.5 0.05 250 / 0.14);
+}
+
+/* Smooth theme transition */
+html.theme-anim,
+html.theme-anim body,
+html.theme-anim *:not(svg):not(path) {
+  transition: background-color 0.45s ease, border-color 0.45s ease, color 0.45s ease,
+    box-shadow 0.45s ease !important;
+}
+.theme-toggle-icon {
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.3s ease;
+}
+
+/* ===== Insights cards ===== */
+.insight-card {
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s ease, border-color 0.4s ease;
+}
+.insight-card:hover {
+  transform: translateY(-10px);
+  border-color: var(--cyan);
+  box-shadow: 0 24px 50px -14px oklch(0.55 0.24 295 / 0.45), 0 0 24px -6px oklch(0.78 0.16 215 / 0.45);
+}
+.insight-thumb {
+  background: linear-gradient(135deg, oklch(0.55 0.24 295 / 0.35), oklch(0.78 0.16 215 / 0.3));
+}
+
+/* ===== Timeline ===== */
+.timeline-dot-pulse::after {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border-radius: 9999px;
+  border: 2px solid var(--cyan);
+  animation: tl-pulse 1.8s ease-out infinite;
+}
+@keyframes tl-pulse {
+  0% { transform: scale(0.7); opacity: 0.8; }
+  100% { transform: scale(1.8); opacity: 0; }
+}
+
+/* ===== Orbit / stack ===== */
+.orbit-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border: 1px dashed var(--glass-border);
+  border-radius: 9999px;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+.orbit-spin {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: orbit-rotate linear infinite;
+}
+@keyframes orbit-rotate {
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+.orbit-node {
+  animation: orbit-counter linear infinite;
+}
+@keyframes orbit-counter {
+  to { transform: rotate(-360deg); }
+}
+.orbit-core-ring {
+  animation: spin 12s linear infinite;
+}
+
+/* ===== Chat widget ===== */
+.chat-pulse::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  box-shadow: 0 0 0 0 oklch(0.78 0.16 215 / 0.5);
+  animation: chat-pulse 2s ease-out infinite;
+}
+@keyframes chat-pulse {
+  0% { box-shadow: 0 0 0 0 oklch(0.78 0.16 215 / 0.5); }
+  100% { box-shadow: 0 0 0 16px oklch(0.78 0.16 215 / 0); }
+}
+.typing-dot {
+  animation: typing-bounce 1.2s ease-in-out infinite;
+}
+.typing-dot:nth-child(2) { animation-delay: 0.15s; }
+.typing-dot:nth-child(3) { animation-delay: 0.3s; }
+@keyframes typing-bounce {
+  0%, 60%, 100% { transform: translateY(0); opacity: 0.5; }
+  30% { transform: translateY(-5px); opacity: 1; }
+}
+
+/* ===== Contact form ===== */
+.field-shake {
+  animation: field-shake 0.4s ease;
+}
+@keyframes field-shake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-6px); }
+  40%, 80% { transform: translateX(6px); }
+}
+.float-label {
+  position: absolute;
+  left: 1rem;
+  top: 0.95rem;
+  pointer-events: none;
+  color: var(--muted-foreground);
+  transition: transform 0.2s ease, color 0.2s ease;
+  transform-origin: left;
+}
+.float-field:focus ~ .float-label,
+.float-field.filled ~ .float-label {
+  transform: translateY(-1.55rem) scale(0.82);
+  color: var(--cyan);
+}
+.float-field:focus {
+  border-color: var(--cyan);
+  box-shadow: var(--shadow-glow-cyan);
+}
+
 /* ===== Respect reduced motion ===== */
 @media (prefers-reduced-motion: reduce) {
   *,
@@ -781,5 +930,6 @@
   }
   .custom-cursor { display: none !important; }
 }
+
 
 
