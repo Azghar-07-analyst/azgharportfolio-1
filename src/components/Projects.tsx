@@ -5,23 +5,34 @@ import { Reveal } from "./Reveal";
 import { TiltCard } from "./TiltCard";
 import { ProjectsBackground } from "./ProjectsBackground";
 
-const projects = [
+type Part = { icon: string; label: string; text: string };
+
+const projects: { title: string; parts: Part[]; stack: string[] }[] = [
   {
     title: "Global Layoffs Data Analysis",
-    impact:
-      "Built an end-to-end SQL workflow over 10K+ records; ran EDA on industry & geography trends to surface layoff patterns.",
+    parts: [
+      { icon: "❌", label: "Problem", text: "Raw global layoff data was unstructured, inconsistent, and unusable for analysis." },
+      { icon: "⚙️", label: "Solution", text: "Built an end-to-end SQL pipeline to clean and standardize 10,000+ records." },
+      { icon: "📈", label: "Impact", text: "Revealed 3 key industries and regions responsible for the majority of global layoffs." },
+    ],
     stack: ["SQL", "Python"],
   },
   {
     title: "Boston Housing Price Prediction",
-    impact:
-      "Achieved R² > 0.85 with a 15% accuracy boost via feature engineering on housing market data.",
+    parts: [
+      { icon: "❌", label: "Problem", text: "Housing price patterns were complex and non-linear, making manual estimation unreliable." },
+      { icon: "⚙️", label: "Solution", text: "Built regression models with advanced feature engineering techniques in Python." },
+      { icon: "📈", label: "Impact", text: "Achieved R² above 0.85 with a 15% boost in prediction accuracy." },
+    ],
     stack: ["Python", "Scikit-Learn"],
   },
   {
     title: "InsightSphere Retail Sales Analytics",
-    impact:
-      "Analyzed 10K+ records for seasonality trends and shipped interactive dashboards for stakeholders.",
+    parts: [
+      { icon: "❌", label: "Problem", text: "Retail sales data was scattered with no visibility into trends or performance." },
+      { icon: "⚙️", label: "Solution", text: "Processed 10,000+ records using SQL and Excel with interactive dashboards." },
+      { icon: "📈", label: "Impact", text: "Identified key seasonality patterns and top performing products for stakeholders." },
+    ],
     stack: ["Excel", "SQL", "Tableau", "Power BI"],
   },
 ];
@@ -37,8 +48,13 @@ const cardVariants: Variants = {
     opacity: 1,
     scale: 1,
     filter: "blur(0px)",
-    transition: { type: "spring", bounce: 0.35, duration: 0.6 },
+    transition: { type: "spring", bounce: 0.35, duration: 0.6, staggerChildren: 0.18, delayChildren: 0.2 },
   },
+};
+
+const partVariants: Variants = {
+  hidden: { opacity: 0, y: 12 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.4, ease: [0.22, 1, 0.36, 1] } },
 };
 
 export function Projects() {
@@ -65,7 +81,20 @@ export function Projects() {
                 <div className="project-inner relative flex h-full flex-col">
                   <div className="mb-4 h-1 w-12 rounded-full" style={{ background: "var(--gradient-brand)" }} />
                   <h3 className="font-display text-xl font-bold leading-snug">{p.title}</h3>
-                  <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">{p.impact}</p>
+
+                  <div className="mt-4 flex-1 space-y-3">
+                    {p.parts.map((part) => (
+                      <motion.div key={part.label} variants={partVariants} className="flex gap-2.5">
+                        <span className="select-none text-base leading-6" aria-hidden>
+                          {part.icon}
+                        </span>
+                        <p className="text-sm leading-relaxed text-muted-foreground">
+                          <span className="font-semibold text-foreground">{part.label}: </span>
+                          {part.text}
+                        </p>
+                      </motion.div>
+                    ))}
+                  </div>
 
                   <div className="mt-5 flex flex-wrap gap-2">
                     {p.stack.map((s, si) => (
