@@ -60,6 +60,8 @@ function Index() {
       <CustomCursor />
       <ScrollProgress />
       <BackToTop />
+      <ChatWidget />
+      <ResumeModal />
       <Navbar />
       <Hero />
       <SectionDivider />
@@ -71,7 +73,11 @@ function Index() {
       <SectionDivider />
       <Skills />
       <SectionDivider />
+      <MyStack />
+      <SectionDivider />
       <Projects />
+      <SectionDivider />
+      <Insights />
       <SectionDivider />
       <QuoteBanner />
       <SectionDivider />
