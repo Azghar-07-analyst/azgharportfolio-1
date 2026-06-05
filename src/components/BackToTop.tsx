@@ -22,7 +22,7 @@ export function BackToTop() {
           transition={{ type: "spring", stiffness: 320, damping: 22 }}
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           aria-label="Back to top"
-          className="fixed bottom-6 right-6 z-50 flex h-12 w-12 items-center justify-center rounded-full text-primary-foreground glow-cyan transition-transform hover:scale-110"
+          className="fixed bottom-6 left-6 z-50 flex h-12 w-12 items-center justify-center rounded-full text-primary-foreground glow-cyan transition-transform hover:scale-110"
           style={{ background: "var(--gradient-brand)" }}
         >
           <ArrowUp className="h-5 w-5" />
