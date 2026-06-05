@@ -1,10 +1,11 @@
 import { motion } from "motion/react";
-import { ArrowRight, Download, TrendingUp, BarChart3, Activity } from "lucide-react";
+import { ArrowRight, Download, TrendingUp, BarChart3, Activity, Eye } from "lucide-react";
 import { ParticleField } from "./ParticleField";
 import { AuroraBackground } from "./AuroraBackground";
 import { ScrollIndicator } from "./ScrollIndicator";
 import { RippleButton, RippleLink } from "./Ripple";
 import { Typewriter, TypingOnce } from "./Typewriter";
+import { LiveBadge } from "./LiveBadge";
 
 const nameWords = ["Syed", "Azghar", "Abbas", "Rizvi"];
 
@@ -135,6 +136,9 @@ export function Hero() {
             Open to Work — Let's Connect
           </motion.span>
 
+          <LiveBadge />
+
+
           <h1
             className="mt-5 flex flex-wrap justify-center gap-x-3 font-display font-extrabold leading-tight tracking-tight lg:justify-start"
             style={{ fontSize: "clamp(2rem, 8vw, 5rem)" }}
@@ -188,6 +192,12 @@ export function Hero() {
             >
               View My Work
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </RippleButton>
+            <RippleButton
+              onClick={() => window.dispatchEvent(new Event("open-resume"))}
+              className="btn-shimmer inline-flex min-h-[44px] w-full items-center justify-center gap-2 rounded-full glass px-6 py-3 text-sm font-semibold transition-colors hover:bg-secondary sm:w-auto"
+            >
+              <Eye className="h-4 w-4" /> Preview Resume
             </RippleButton>
             <RippleLink
               href="/resume.pdf"
