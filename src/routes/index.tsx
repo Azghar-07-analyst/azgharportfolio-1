@@ -7,7 +7,9 @@ import { About } from "@/components/About";
 import { ByTheNumbers } from "@/components/ByTheNumbers";
 import { Offerings } from "@/components/Offerings";
 import { Skills } from "@/components/Skills";
+import { MyStack } from "@/components/MyStack";
 import { Projects } from "@/components/Projects";
+import { Insights } from "@/components/Insights";
 import { QuoteBanner } from "@/components/QuoteBanner";
 import { Experience } from "@/components/Experience";
 import { Certifications } from "@/components/Certifications";
@@ -17,6 +19,8 @@ import { SectionDivider } from "@/components/SectionDivider";
 import { NoiseTexture } from "@/components/NoiseTexture";
 import { Loader } from "@/components/Loader";
 import { BackToTop } from "@/components/BackToTop";
+import { ChatWidget } from "@/components/ChatWidget";
+import { ResumeModal } from "@/components/ResumeModal";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -56,6 +60,8 @@ function Index() {
       <CustomCursor />
       <ScrollProgress />
       <BackToTop />
+      <ChatWidget />
+      <ResumeModal />
       <Navbar />
       <Hero />
       <SectionDivider />
@@ -67,7 +73,11 @@ function Index() {
       <SectionDivider />
       <Skills />
       <SectionDivider />
+      <MyStack />
+      <SectionDivider />
       <Projects />
+      <SectionDivider />
+      <Insights />
       <SectionDivider />
       <QuoteBanner />
       <SectionDivider />

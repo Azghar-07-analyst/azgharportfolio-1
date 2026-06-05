@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Menu, X, Download } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
+import { ThemeToggle } from "./ThemeToggle";
 
 const links = [
   { id: "home", label: "Home" },
@@ -99,6 +100,7 @@ export function Navbar() {
         </ul>
 
         <div className="flex items-center gap-3">
+          <ThemeToggle />
           <a
             href="/resume.pdf"
             download
