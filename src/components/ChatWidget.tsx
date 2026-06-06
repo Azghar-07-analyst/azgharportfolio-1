@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { MessageCircle, X, Send, Bot } from "lucide-react";
 import { askBot } from "@/lib/chat.functions";
+import { track } from "@/lib/analytics";
 
 type Msg = { role: "user" | "assistant"; content: string };
 
