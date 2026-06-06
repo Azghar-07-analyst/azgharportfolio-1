@@ -6,6 +6,7 @@ import { ScrollIndicator } from "./ScrollIndicator";
 import { RippleButton, RippleLink } from "./Ripple";
 import { Typewriter, TypingOnce } from "./Typewriter";
 import { LiveBadge } from "./LiveBadge";
+import { track } from "@/lib/analytics";
 
 const nameWords = ["Syed", "Azghar", "Abbas", "Rizvi"];
 
