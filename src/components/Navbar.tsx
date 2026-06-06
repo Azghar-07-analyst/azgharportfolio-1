@@ -100,11 +100,15 @@ export function Navbar() {
           ))}
         </ul>
 
-        <div className="flex items-center gap-3">
+        <div class="flex items-center gap-3">
+          <span className="hidden items-center gap-2 rounded-full glass px-3 py-1.5 text-xs font-semibold text-green-400 lg:inline-flex">
+            <span className="status-dot" /> Actively Looking
+          </span>
           <ThemeToggle />
           <a
             href="/resume.pdf"
             download
+            onClick={() => track("resume_downloaded", { source: "navbar" })}
             className="hidden items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold text-primary-foreground glow-cyan transition-transform hover:scale-105 md:inline-flex"
             style={{ background: "var(--gradient-brand)" }}
           >
