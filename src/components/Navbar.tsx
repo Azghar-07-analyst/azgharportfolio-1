@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Menu, X, Download } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { ThemeToggle } from "./ThemeToggle";
+import { track } from "@/lib/analytics";
 
 const links = [
   { id: "home", label: "Home" },
