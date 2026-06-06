@@ -2,6 +2,7 @@ import { useState, type FormEvent } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Send, Check } from "lucide-react";
 import { submitContact } from "@/lib/contact.functions";
+import { track } from "@/lib/analytics";
 
 type Fields = { name: string; email: string; message: string };
 const empty: Fields = { name: "", email: "", message: "" };
