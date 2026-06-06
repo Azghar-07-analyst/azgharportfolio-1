@@ -100,7 +100,7 @@ export function Navbar() {
           ))}
         </ul>
 
-        <div class="flex items-center gap-3">
+        <div className="flex items-center gap-3">
           <span className="hidden items-center gap-2 rounded-full glass px-3 py-1.5 text-xs font-semibold text-green-400 lg:inline-flex">
             <span className="status-dot" /> Actively Looking
           </span>
