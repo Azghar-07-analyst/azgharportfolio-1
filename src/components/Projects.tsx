@@ -4,6 +4,7 @@ import { motion, type Variants } from "motion/react";
 import { Reveal } from "./Reveal";
 import { TiltCard } from "./TiltCard";
 import { ProjectsBackground } from "./ProjectsBackground";
+import { track } from "@/lib/analytics";
 
 type Part = { icon: string; label: string; text: string };
 
