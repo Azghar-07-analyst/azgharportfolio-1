@@ -1,2 +1,4 @@
 User-agent: *
 Allow: /
+
+Sitemap: https://azgharportfolio-1.lovable.app/sitemap.xml

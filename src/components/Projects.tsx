@@ -4,6 +4,7 @@ import { motion, type Variants } from "motion/react";
 import { Reveal } from "./Reveal";
 import { TiltCard } from "./TiltCard";
 import { ProjectsBackground } from "./ProjectsBackground";
+import { track } from "@/lib/analytics";
 
 type Part = { icon: string; label: string; text: string };
 
@@ -112,6 +113,7 @@ export function Projects() {
                     href="https://github.com/Azghar-07-analyst"
                     target="_blank"
                     rel="noreferrer"
+                    onClick={() => track("project_viewed", { project: p.title })}
                     className="project-btn group/btn relative mt-6 inline-flex min-h-[44px] w-full items-center justify-center gap-2 overflow-hidden rounded-full bg-secondary px-4 text-sm font-semibold text-foreground transition-colors hover:text-primary-foreground"
                   >
                     <span className="project-btn-fill" aria-hidden />

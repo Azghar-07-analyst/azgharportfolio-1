@@ -6,6 +6,7 @@ import { ScrollIndicator } from "./ScrollIndicator";
 import { RippleButton, RippleLink } from "./Ripple";
 import { Typewriter, TypingOnce } from "./Typewriter";
 import { LiveBadge } from "./LiveBadge";
+import { track } from "@/lib/analytics";
 
 const nameWords = ["Syed", "Azghar", "Abbas", "Rizvi"];
 
@@ -202,6 +203,7 @@ export function Hero() {
             <RippleLink
               href="/resume.pdf"
               download
+              onClick={() => track("resume_downloaded", { source: "hero" })}
               className="btn-shimmer inline-flex min-h-[44px] w-full items-center justify-center gap-2 rounded-full glass px-6 py-3 text-sm font-semibold transition-colors hover:bg-secondary sm:w-auto"
             >
               <Download className="h-4 w-4" /> Download Resume

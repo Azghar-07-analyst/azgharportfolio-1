@@ -64,6 +64,7 @@ export function RippleLink({
   target,
   rel,
   style,
+  onClick,
 }: {
   children: ReactNode;
   className?: string;
@@ -72,6 +73,7 @@ export function RippleLink({
   target?: string;
   rel?: string;
   style?: React.CSSProperties;
+  onClick?: () => void;
 }) {
   const { add, layer } = useRipples();
   return (
@@ -82,7 +84,10 @@ export function RippleLink({
       rel={rel}
       className={`relative overflow-hidden ${className ?? ""}`}
       style={style}
-      onClick={add}
+      onClick={(e) => {
+        add(e);
+        onClick?.();
+      }}
     >
       {children}
       {layer}

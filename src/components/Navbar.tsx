@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Menu, X, Download } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { ThemeToggle } from "./ThemeToggle";
+import { track } from "@/lib/analytics";
 
 const links = [
   { id: "home", label: "Home" },
@@ -100,10 +101,14 @@ export function Navbar() {
         </ul>
 
         <div className="flex items-center gap-3">
+          <span className="hidden items-center gap-2 rounded-full glass px-3 py-1.5 text-xs font-semibold text-green-400 lg:inline-flex">
+            <span className="status-dot" /> Actively Looking
+          </span>
           <ThemeToggle />
           <a
             href="/resume.pdf"
             download
+            onClick={() => track("resume_downloaded", { source: "navbar" })}
             className="hidden items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold text-primary-foreground glow-cyan transition-transform hover:scale-105 md:inline-flex"
             style={{ background: "var(--gradient-brand)" }}
           >
@@ -141,7 +146,10 @@ export function Navbar() {
                 <a
                   href="/resume.pdf"
                   download
-                  onClick={() => setOpen(false)}
+                  onClick={() => {
+                    track("resume_downloaded", { source: "navbar_mobile" });
+                    setOpen(false);
+                  }}
                   className="flex min-h-[44px] w-full items-center justify-center gap-2 rounded-full px-4 text-sm font-semibold text-primary-foreground glow-cyan"
                   style={{ background: "var(--gradient-brand)" }}
                 >
