@@ -29,6 +29,7 @@ export function ContactForm() {
     setStatus("sending");
     try {
       await submitContact({ data: values });
+      track("contact_form_submitted", { email: values.email });
       setStatus("done");
       setValues(empty);
     } catch {
