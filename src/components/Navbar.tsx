@@ -146,7 +146,10 @@ export function Navbar() {
                 <a
                   href="/resume.pdf"
                   download
-                  onClick={() => setOpen(false)}
+                  onClick={() => {
+                    track("resume_downloaded", { source: "navbar_mobile" });
+                    setOpen(false);
+                  }}
                   className="flex min-h-[44px] w-full items-center justify-center gap-2 rounded-full px-4 text-sm font-semibold text-primary-foreground glow-cyan"
                   style={{ background: "var(--gradient-brand)" }}
                 >
