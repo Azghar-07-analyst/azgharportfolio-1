@@ -1,11 +1,18 @@
 import { Database, FolderGit2, Award } from "lucide-react";
 import { Reveal } from "./Reveal";
 import { CountUp } from "./CountUp";
+import { QuoteCycle } from "./QuoteCycle";
 
 const stats = [
   { icon: Database, value: 10000, suffix: "+", label: "Records Analyzed" },
   { icon: FolderGit2, value: 3, suffix: "", label: "Live Projects" },
   { icon: Award, value: 2, suffix: "", label: "Industry Certifications" },
+];
+
+const funFacts = [
+  "☕ Powered by coffee and curiosity",
+  "🎯 Detail-obsessed analyst",
+  "🌍 Open to remote opportunities worldwide",
 ];
 
 export function About() {
@@ -28,6 +35,10 @@ export function About() {
         </p>
       </Reveal>
 
+      <Reveal delay={0.15}>
+        <QuoteCycle className="mt-6 text-center lg:text-left" />
+      </Reveal>
+
       <div className="mt-12 grid gap-6 sm:grid-cols-3">
         {stats.map((s, i) => (
           <Reveal key={s.label} delay={0.15 + i * 0.1}>
@@ -48,6 +59,19 @@ export function About() {
           </Reveal>
         ))}
       </div>
+
+      <Reveal delay={0.2}>
+        <div className="mt-8 flex flex-wrap justify-center gap-3 lg:justify-start">
+          {funFacts.map((f) => (
+            <span
+              key={f}
+              className="inline-flex items-center rounded-full glass px-4 py-2 text-sm font-medium text-foreground/90"
+            >
+              {f}
+            </span>
+          ))}
+        </div>
+      </Reveal>
     </section>
   );
 }
