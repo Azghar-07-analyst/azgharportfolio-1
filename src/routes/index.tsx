@@ -22,6 +22,8 @@ import { BackToTop } from "@/components/BackToTop";
 import { ChatWidget } from "@/components/ChatWidget";
 import { ResumeModal } from "@/components/ResumeModal";
 import { SiteEnhancements } from "@/components/SiteEnhancements";
+import { SiteExtras } from "@/components/SiteExtras";
+import { ShareModal } from "@/components/ShareModal";
 import { Toaster } from "@/components/ui/sonner";
 import { registerServiceWorker } from "@/lib/register-sw";
 import { GA_MEASUREMENT_ID, gaEnabled } from "@/lib/analytics";
