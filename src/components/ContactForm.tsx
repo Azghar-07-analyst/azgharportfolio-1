@@ -1,8 +1,15 @@
 import { useState, type FormEvent } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Send, Check } from "lucide-react";
+import confetti from "canvas-confetti";
 import { submitContact } from "@/lib/contact.functions";
 import { track } from "@/lib/analytics";
+
+function celebrate() {
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const colors = ["#00d4ff", "#7c3aed", "#ffffff"];
+  confetti({ particleCount: 120, spread: 90, startVelocity: 42, origin: { y: 0.7 }, colors });
+}
 
 type Fields = { name: string; email: string; message: string };
 const empty: Fields = { name: "", email: "", message: "" };
