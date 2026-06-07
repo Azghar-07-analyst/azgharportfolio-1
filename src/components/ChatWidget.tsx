@@ -24,10 +24,26 @@ export function ChatWidget() {
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     scrollRef.current?.scrollTo({ top: scrollRef.current.scrollHeight, behavior: "smooth" });
   }, [messages, loading]);
+
+  useEffect(() => {
+    const onFocus = () => {
+      setOpen(true);
+      track("chatbot_opened");
+      setTimeout(() => inputRef.current?.focus(), 120);
+    };
+    const onClose = () => setOpen(false);
+    window.addEventListener("focus-chat", onFocus);
+    window.addEventListener("close-overlays", onClose);
+    return () => {
+      window.removeEventListener("focus-chat", onFocus);
+      window.removeEventListener("close-overlays", onClose);
+    };
+  }, []);
 
   const send = async (text: string) => {
     const trimmed = text.trim();
