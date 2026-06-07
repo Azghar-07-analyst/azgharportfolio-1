@@ -135,23 +135,42 @@ export function Hero() {
 
       <div className="mx-auto grid w-full container-xl items-center gap-12 lg:grid-cols-2">
         <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
-          <motion.span
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="inline-flex items-center gap-2.5 rounded-full glass px-4 py-1.5 text-sm font-medium text-foreground/90"
-          >
-            <span className="relative flex h-2.5 w-2.5">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-80" />
-              <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-green-400 shadow-[0_0_10px_2px_rgba(74,222,128,0.7)]" />
-            </span>
-            Open to Work — Let's Connect
-          </motion.span>
+          <div className="flex flex-wrap items-center justify-center gap-2.5 lg:justify-start">
+            <motion.span
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="inline-flex items-center gap-2.5 rounded-full glass px-4 py-1.5 text-sm font-medium text-foreground/90"
+            >
+              <span className="relative flex h-2.5 w-2.5">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-80" />
+                <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-green-400 shadow-[0_0_10px_2px_rgba(74,222,128,0.7)]" />
+              </span>
+              Open to Work — Let's Connect
+            </motion.span>
+
+            <motion.span
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 }}
+              className="building-badge inline-flex items-center gap-2 rounded-full glass px-4 py-1.5 text-sm font-medium text-foreground/90"
+            >
+              🔨 Currently Building: ML Projects
+            </motion.span>
+          </div>
 
           <LiveBadge />
 
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
+            className="mt-5 text-base font-semibold text-cyan"
+          >
+            {greeting()}
+          </motion.p>
 
           <h1
-            className="mt-5 flex flex-wrap justify-center gap-x-3 font-display font-extrabold leading-tight tracking-tight lg:justify-start"
+            className="mt-2 flex flex-wrap justify-center gap-x-3 font-display font-extrabold leading-tight tracking-tight lg:justify-start"
             style={{ fontSize: "clamp(2rem, 8vw, 5rem)" }}
           >
             {nameWords.map((word, i) => (
