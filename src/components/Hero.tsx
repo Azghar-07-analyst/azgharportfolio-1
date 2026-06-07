@@ -126,6 +126,7 @@ export function Hero() {
     <section id="home" className="section-px relative flex min-h-screen items-center overflow-hidden bg-mesh pt-28 pb-16 lg:pt-24 lg:pb-0">
       <div className="absolute inset-0 -z-10">
         <AuroraBackground />
+        <CodeRain />
         <div className="absolute left-1/4 top-1/4 h-72 w-72 animate-spin-slow rounded-full bg-purple/20 blur-3xl" />
         <div className="absolute right-1/4 bottom-1/4 h-72 w-72 animate-pulse rounded-full bg-cyan/20 blur-3xl" />
         <ParticleField />
