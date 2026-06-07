@@ -17,6 +17,7 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { Reveal } from "./Reveal";
+import { SkillsRadar } from "./SkillsRadar";
 
 type Variant = "flip" | "bi" | "ripple" | "fill" | "wiggle";
 
