@@ -123,6 +123,8 @@ function Index() {
       <ChatWidget />
       <ResumeModal />
       <SiteEnhancements />
+      <SiteExtras />
+      <ShareModal />
       <Toaster position="bottom-center" />
       <Navbar />
       <Hero />
