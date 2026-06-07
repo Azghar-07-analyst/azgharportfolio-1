@@ -237,6 +237,12 @@ export function Hero() {
             >
               <Download className="h-4 w-4" /> Download Resume
             </RippleLink>
+            <RippleButton
+              onClick={() => window.dispatchEvent(new Event("open-share"))}
+              className="btn-shimmer inline-flex min-h-[44px] w-full items-center justify-center gap-2 rounded-full glass px-6 py-3 text-sm font-semibold transition-colors hover:bg-secondary sm:w-auto"
+            >
+              <Share2 className="h-4 w-4" /> Share This Portfolio
+            </RippleButton>
 
           </motion.div>
 
