@@ -1,7 +1,8 @@
 import { motion } from "motion/react";
-import { ArrowRight, Download, TrendingUp, BarChart3, Activity, Eye } from "lucide-react";
+import { ArrowRight, Download, TrendingUp, BarChart3, Activity, Eye, Share2 } from "lucide-react";
 import { ParticleField } from "./ParticleField";
 import { AuroraBackground } from "./AuroraBackground";
+import { CodeRain } from "./CodeRain";
 import { ScrollIndicator } from "./ScrollIndicator";
 import { RippleButton, RippleLink } from "./Ripple";
 import { Typewriter, TypingOnce } from "./Typewriter";
@@ -9,6 +10,14 @@ import { LiveBadge } from "./LiveBadge";
 import { track } from "@/lib/analytics";
 
 const nameWords = ["Syed", "Azghar", "Abbas", "Rizvi"];
+
+function greeting() {
+  const h = new Date().getHours();
+  if (h >= 5 && h < 12) return "Good Morning 👋 I'm";
+  if (h >= 12 && h < 17) return "Good Afternoon 👋 I'm";
+  if (h >= 17 && h < 21) return "Good Evening 👋 I'm";
+  return "Good Night 👋 I'm";
+}
 
 function scrollTo(id: string) {
   document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
@@ -117,6 +126,7 @@ export function Hero() {
     <section id="home" className="section-px relative flex min-h-screen items-center overflow-hidden bg-mesh pt-28 pb-16 lg:pt-24 lg:pb-0">
       <div className="absolute inset-0 -z-10">
         <AuroraBackground />
+        <CodeRain />
         <div className="absolute left-1/4 top-1/4 h-72 w-72 animate-spin-slow rounded-full bg-purple/20 blur-3xl" />
         <div className="absolute right-1/4 bottom-1/4 h-72 w-72 animate-pulse rounded-full bg-cyan/20 blur-3xl" />
         <ParticleField />
@@ -125,23 +135,42 @@ export function Hero() {
 
       <div className="mx-auto grid w-full container-xl items-center gap-12 lg:grid-cols-2">
         <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
-          <motion.span
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="inline-flex items-center gap-2.5 rounded-full glass px-4 py-1.5 text-sm font-medium text-foreground/90"
-          >
-            <span className="relative flex h-2.5 w-2.5">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-80" />
-              <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-green-400 shadow-[0_0_10px_2px_rgba(74,222,128,0.7)]" />
-            </span>
-            Open to Work — Let's Connect
-          </motion.span>
+          <div className="flex flex-wrap items-center justify-center gap-2.5 lg:justify-start">
+            <motion.span
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="inline-flex items-center gap-2.5 rounded-full glass px-4 py-1.5 text-sm font-medium text-foreground/90"
+            >
+              <span className="relative flex h-2.5 w-2.5">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-80" />
+                <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-green-400 shadow-[0_0_10px_2px_rgba(74,222,128,0.7)]" />
+              </span>
+              Open to Work — Let's Connect
+            </motion.span>
+
+            <motion.span
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 }}
+              className="building-badge inline-flex items-center gap-2 rounded-full glass px-4 py-1.5 text-sm font-medium text-foreground/90"
+            >
+              🔨 Currently Building: ML Projects
+            </motion.span>
+          </div>
 
           <LiveBadge />
 
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
+            className="mt-5 text-base font-semibold text-cyan"
+          >
+            {greeting()}
+          </motion.p>
 
           <h1
-            className="mt-5 flex flex-wrap justify-center gap-x-3 font-display font-extrabold leading-tight tracking-tight lg:justify-start"
+            className="mt-2 flex flex-wrap justify-center gap-x-3 font-display font-extrabold leading-tight tracking-tight lg:justify-start"
             style={{ fontSize: "clamp(2rem, 8vw, 5rem)" }}
           >
             {nameWords.map((word, i) => (
@@ -208,6 +237,12 @@ export function Hero() {
             >
               <Download className="h-4 w-4" /> Download Resume
             </RippleLink>
+            <RippleButton
+              onClick={() => window.dispatchEvent(new Event("open-share"))}
+              className="btn-shimmer inline-flex min-h-[44px] w-full items-center justify-center gap-2 rounded-full glass px-6 py-3 text-sm font-semibold transition-colors hover:bg-secondary sm:w-auto"
+            >
+              <Share2 className="h-4 w-4" /> Share This Portfolio
+            </RippleButton>
 
           </motion.div>
 

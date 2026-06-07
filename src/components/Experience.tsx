@@ -1,5 +1,6 @@
-import { GraduationCap, Briefcase } from "lucide-react";
-import { motion } from "motion/react";
+import { useState } from "react";
+import { GraduationCap, Briefcase, ChevronDown } from "lucide-react";
+import { motion, AnimatePresence } from "motion/react";
 import { Reveal } from "./Reveal";
 
 type Item = {
@@ -9,6 +10,8 @@ type Item = {
   date: string;
   desc: string;
   current?: boolean;
+  tags?: string[];
+  gained?: string;
 };
 
 const items: Item[] = [
@@ -25,6 +28,7 @@ const items: Item[] = [
     org: "The New College, Chennai",
     date: "Completed",
     desc: "Studied programming, databases and applied computer science.",
+    tags: ["Data Structures", "Programming Fundamentals"],
   },
   {
     icon: Briefcase,
@@ -32,6 +36,9 @@ const items: Item[] = [
     org: "VCodez, Chennai",
     date: "May 2025 – July 2025",
     desc: "Cleaned data with SQL & Python, ran EDA and built Power BI dashboards.",
+    tags: ["SQL", "Python", "Power BI", "EDA"],
+    gained:
+      "Real-world data cleaning experience, stakeholder dashboard delivery, SQL query optimization, and translating raw data into business decisions.",
   },
   {
     icon: GraduationCap,
@@ -40,10 +47,13 @@ const items: Item[] = [
     date: "Current",
     desc: "Advancing in machine learning, statistics and data science at scale.",
     current: true,
+    tags: ["Python", "Machine Learning", "Statistics", "R"],
   },
 ];
 
 export function Experience() {
+  const [expanded, setExpanded] = useState<string | null>(null);
+
   return (
     <section id="experience" className="section-px section-py relative scroll-mt-24">
       <div className="mx-auto container-xl">
@@ -53,7 +63,6 @@ export function Experience() {
         </Reveal>
 
         <div className="relative mt-12">
-          {/* Center / left line */}
           <motion.div
             aria-hidden
             className="absolute left-4 top-0 w-[3px] origin-top rounded-full md:left-1/2 md:-translate-x-1/2"
@@ -67,6 +76,7 @@ export function Experience() {
           <div className="space-y-8">
             {items.map((it, i) => {
               const left = i % 2 === 0;
+              const isOpen = expanded === it.title;
               return (
                 <motion.div
                   key={it.title}
@@ -76,7 +86,6 @@ export function Experience() {
                   transition={{ duration: 0.5, delay: i * 0.3, ease: [0.22, 1, 0.36, 1] }}
                   className={`relative flex md:items-center ${left ? "md:flex-row" : "md:flex-row-reverse"}`}
                 >
-                  {/* Dot */}
                   <span
                     className={`absolute left-4 top-5 z-10 flex h-3.5 w-3.5 -translate-x-1/2 items-center justify-center rounded-full md:left-1/2 ${
                       it.current ? "timeline-dot-pulse" : ""
@@ -84,7 +93,6 @@ export function Experience() {
                     style={{ background: "var(--gradient-brand)" }}
                   />
 
-                  {/* Card */}
                   <div className="w-full pl-10 md:w-1/2 md:pl-0">
                     <div
                       className={`group relative overflow-hidden rounded-2xl glass p-5 transition-all duration-300 hover:-translate-y-1 hover:glow-cyan ${
@@ -112,6 +120,48 @@ export function Experience() {
                         )}
                       </p>
                       <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{it.desc}</p>
+
+                      {it.tags && (
+                        <div className="mt-3 flex flex-wrap gap-2">
+                          {it.tags.map((t) => (
+                            <span
+                              key={t}
+                              className="rounded-full border border-cyan/30 bg-secondary px-2.5 py-0.5 text-[11px] font-medium text-cyan"
+                            >
+                              {t}
+                            </span>
+                          ))}
+                        </div>
+                      )}
+
+                      {it.gained && (
+                        <div className="mt-3">
+                          <button
+                            onClick={() => setExpanded(isOpen ? null : it.title)}
+                            className="inline-flex items-center gap-1 text-sm font-semibold text-purple transition-colors hover:text-cyan"
+                          >
+                            What I gained
+                            <ChevronDown
+                              className={`h-4 w-4 transition-transform ${isOpen ? "rotate-180" : ""}`}
+                            />
+                          </button>
+                          <AnimatePresence initial={false}>
+                            {isOpen && (
+                              <motion.div
+                                initial={{ height: 0, opacity: 0 }}
+                                animate={{ height: "auto", opacity: 1 }}
+                                exit={{ height: 0, opacity: 0 }}
+                                transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+                                className="overflow-hidden"
+                              >
+                                <p className="mt-2 rounded-xl bg-secondary/60 p-3 text-sm leading-relaxed text-muted-foreground">
+                                  {it.gained}
+                                </p>
+                              </motion.div>
+                            )}
+                          </AnimatePresence>
+                        </div>
+                      )}
                     </div>
                   </div>
 

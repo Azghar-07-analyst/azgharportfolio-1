@@ -69,10 +69,7 @@ export function Navbar() {
     >
       <nav className="section-px mx-auto flex max-w-6xl items-center justify-between">
         <button onClick={() => go("home")} className="flex items-center gap-2" aria-label="Home">
-          <span
-            className="flex h-9 w-9 items-center justify-center rounded-xl font-display text-sm font-extrabold text-primary-foreground glow-cyan"
-            style={{ background: "var(--gradient-brand)" }}
-          >
+          <span className="monogram-breathe flex h-9 w-9 items-center justify-center rounded-xl font-display text-sm font-extrabold text-primary-foreground glow-cyan">
             AZ
           </span>
         </button>

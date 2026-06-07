@@ -1,8 +1,18 @@
-import { Mail, Phone, Linkedin, Github, Clock } from "lucide-react";
+import { Mail, Phone, Linkedin, Github, Clock, CalendarDays, Users } from "lucide-react";
 import { toast } from "sonner";
 import { Reveal } from "./Reveal";
 import { ContactForm } from "./ContactForm";
 import { track } from "@/lib/analytics";
+
+const days = [
+  { d: "Mon", on: true },
+  { d: "Tue", on: true },
+  { d: "Wed", on: true },
+  { d: "Thu", on: true },
+  { d: "Fri", on: true },
+  { d: "Sat", on: false },
+  { d: "Sun", on: false },
+];
 
 const items = [
   { icon: Mail, label: "Email", value: "azgharabbas@gmail.com", href: "mailto:azgharabbas@gmail.com", key: "email" },
@@ -44,6 +54,41 @@ export function Contact() {
           <span className="mx-auto mt-5 inline-flex items-center gap-2 rounded-full glass px-4 py-1.5 text-sm font-medium text-foreground/90">
             <Clock className="h-4 w-4 text-cyan" /> ⚡ Usually responds within 24 hours
           </span>
+
+          <div className="mx-auto mt-5 flex flex-wrap items-center justify-center gap-3">
+            <span className="inline-flex items-center gap-2 rounded-full glass px-4 py-1.5 text-sm font-semibold">
+              <Github className="h-4 w-4 text-cyan" /> 5+ Repositories
+            </span>
+            <span className="inline-flex items-center gap-2 rounded-full glass px-4 py-1.5 text-sm font-semibold">
+              <Users className="h-4 w-4 text-purple" /> 1,300+ Connections
+            </span>
+          </div>
+        </Reveal>
+
+        <Reveal delay={0.1}>
+          <div className="mx-auto mt-8 max-w-md rounded-2xl glass p-6">
+            <p className="flex items-center justify-center gap-2 text-sm font-semibold">
+              <CalendarDays className="h-4 w-4 text-cyan" /> 📅 Available from:{" "}
+              <span className="text-gradient">Immediately</span>
+            </p>
+            <div className="mt-4 grid grid-cols-7 gap-1.5">
+              {days.map((day) => (
+                <div
+                  key={day.d}
+                  className={`flex flex-col items-center rounded-lg py-2 text-xs font-semibold ${
+                    day.on
+                      ? "bg-green-400/15 text-green-400 ring-1 ring-green-400/30"
+                      : "bg-secondary text-muted-foreground"
+                  }`}
+                >
+                  {day.d}
+                </div>
+              ))}
+            </div>
+            <p className="mt-3 text-center text-xs text-muted-foreground">
+              Open to full-time, internship and remote roles
+            </p>
+          </div>
         </Reveal>
 
         <ContactForm />
