@@ -1038,5 +1038,68 @@ html.theme-anim *:not(svg):not(path) {
 }
 
 
+/* ===== Currently building badge pulse ===== */
+.building-badge {
+  position: relative;
+  animation: building-pulse 2.4s ease-in-out infinite;
+}
+@keyframes building-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 oklch(0.55 0.24 295 / 0.0); }
+  50% { box-shadow: 0 0 18px -4px oklch(0.55 0.24 295 / 0.55); }
+}
 
+/* ===== Navbar monogram color breathing ===== */
+.monogram-breathe {
+  background: var(--gradient-brand);
+  background-size: 200% 200%;
+  animation: monogram-breathe 3s ease-in-out infinite;
+}
+@keyframes monogram-breathe {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* ===== Footer premium polish ===== */
+.footer-top-glow::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #00d4ff, #7c3aed, transparent);
+  box-shadow: 0 0 14px oklch(0.78 0.16 215 / 0.6);
+}
+.footer-watermark {
+  position: absolute;
+  left: 50%;
+  bottom: -1.5rem;
+  transform: translateX(-50%);
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  font-size: clamp(4rem, 18vw, 12rem);
+  line-height: 1;
+  color: var(--foreground);
+  opacity: 0.03;
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+}
+.footer-totop {
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.footer-totop:hover .footer-totop-icon {
+  animation: footer-spin 0.6s ease;
+}
+@keyframes footer-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ===== Accessible focus rings ===== */
+:where(a, button, input, textarea, [tabindex]):focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
 
