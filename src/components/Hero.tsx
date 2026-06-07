@@ -1,7 +1,8 @@
 import { motion } from "motion/react";
-import { ArrowRight, Download, TrendingUp, BarChart3, Activity, Eye } from "lucide-react";
+import { ArrowRight, Download, TrendingUp, BarChart3, Activity, Eye, Share2 } from "lucide-react";
 import { ParticleField } from "./ParticleField";
 import { AuroraBackground } from "./AuroraBackground";
+import { CodeRain } from "./CodeRain";
 import { ScrollIndicator } from "./ScrollIndicator";
 import { RippleButton, RippleLink } from "./Ripple";
 import { Typewriter, TypingOnce } from "./Typewriter";
@@ -9,6 +10,14 @@ import { LiveBadge } from "./LiveBadge";
 import { track } from "@/lib/analytics";
 
 const nameWords = ["Syed", "Azghar", "Abbas", "Rizvi"];
+
+function greeting() {
+  const h = new Date().getHours();
+  if (h >= 5 && h < 12) return "Good Morning 👋 I'm";
+  if (h >= 12 && h < 17) return "Good Afternoon 👋 I'm";
+  if (h >= 17 && h < 21) return "Good Evening 👋 I'm";
+  return "Good Night 👋 I'm";
+}
 
 function scrollTo(id: string) {
   document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
