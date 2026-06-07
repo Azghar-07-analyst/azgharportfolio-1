@@ -1,8 +1,18 @@
-import { Mail, Phone, Linkedin, Github, Clock } from "lucide-react";
+import { Mail, Phone, Linkedin, Github, Clock, CalendarDays, Users } from "lucide-react";
 import { toast } from "sonner";
 import { Reveal } from "./Reveal";
 import { ContactForm } from "./ContactForm";
 import { track } from "@/lib/analytics";
+
+const days = [
+  { d: "Mon", on: true },
+  { d: "Tue", on: true },
+  { d: "Wed", on: true },
+  { d: "Thu", on: true },
+  { d: "Fri", on: true },
+  { d: "Sat", on: false },
+  { d: "Sun", on: false },
+];
 
 const items = [
   { icon: Mail, label: "Email", value: "azgharabbas@gmail.com", href: "mailto:azgharabbas@gmail.com", key: "email" },
