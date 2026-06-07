@@ -39,6 +39,7 @@ export function ContactForm() {
       track("contact_form_submitted", { email: values.email });
       setStatus("done");
       setValues(empty);
+      celebrate();
     } catch {
       setStatus("idle");
     }
