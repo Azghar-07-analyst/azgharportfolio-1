@@ -162,6 +162,7 @@ export function ChatWidget() {
               className="flex items-center gap-2 border-t border-border p-2"
             >
               <input
+                ref={inputRef}
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 placeholder="Type a message…"
